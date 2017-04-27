@@ -1,0 +1,13 @@
+1. Coloca o "MinimapCamera" na cena
+2. Cria um Objeto vazio e bota o "MinimapManager" nele
+3. No MinimapManager, bota uma sprite diferente para Ally, Player e Enemy
+4. No LayerMask, seleciona uma Layer qualquer que nenhum objeto esteja usando
+5. No RenderTexture, arrasta a RenderTexture que está na pasta do Minimap
+6. Na camera dos personagens, vai no Culling Mask dela e marca todas as layers menos a usada pelo MinimapManager
+7. Nos personagens, coloca um "MinimapObject"
+8. Arrasta o personagem pro TargetTransform dele
+9. No "Marker", arrasta o Prefab "MinimapMarker" que tem na pasta
+10. Deixa um personagem marcado como "Player" e outro como "Enemy" por enquanto, depois vou adicionar maneiras de controlar isso
+11. Pega o RenderTexture e tasca em qualquer imagem aleatória que o Minimapa vai aparecer ali
+
+Uma dica: Cria dois backgrounds: Um com uma layer qualquer pra câmera do jogador e outro com a layer do minimapa
