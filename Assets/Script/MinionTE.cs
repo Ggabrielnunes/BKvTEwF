@@ -47,7 +47,10 @@ public class MinionTE : NetworkBehaviour
         }
     }*/
 
-
+    public void ChangeSpeed(float speed)
+    {
+        velocidade = new Vector2(speed, 0.0f);
+    }
 
     // Use this for initialization
     void Start()
