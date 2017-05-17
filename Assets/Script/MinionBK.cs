@@ -41,7 +41,7 @@ public class MinionBK : NetworkBehaviour {
     // Use this for initialization
     void Start()
     {
-        velocidade = new Vector2(5.0f, 0.0f);
+        velocidade = new Vector2(10.0f, 0.0f);
         vida = 2;
         idle = 0.0f;
         firerate = 0;
