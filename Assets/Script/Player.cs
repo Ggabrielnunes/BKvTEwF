@@ -9,6 +9,13 @@ public class Player : NetworkBehaviour {
         yield return new WaitForSeconds(i);
         velocidade = 6.0f;
     }
+
+    //LEO COPIA SAPORRA
+    public DetectIfGrounded triggerDown;
+    public DetectIfPassed triggerUp;
+    public Collider2D ignoredCollider;
+    public Collider2D playerCollider;
+
     //Variaveis
     public float velocidade;
     public float forcaPulo;
@@ -108,14 +115,31 @@ public class Player : NetworkBehaviour {
         firerate = 0;
         lento = 0;
 
+        Debug.Log("DFS");
+        //LEO COPIA ISSO
+        triggerDown.onDetectGround += delegate (Collider2D p_collider)
+        {
+            ignoredCollider = p_collider;
+            Debug.Log("T");
+        };
+
+        triggerUp.onDetectPassed += delegate (Collider2D p_collider)
+        {
+            if (p_collider == ignoredCollider)
+            {
+                Physics2D.IgnoreCollision(p_collider, playerCollider, false);
+                Debug.Log("TTT");
+            }
+        };
+        //SAPORA É NECESSÁRIA
+
         if (isLocalPlayer)
             return;
 
 
         GetComponentInChildren<Camera>().enabled = false;
         GetComponentInChildren<AudioListener>().enabled = false;
-        GetComponentInChildren<GameObject>().SetActive(false);
-
+        GetComponentInChildren<GameObject>().SetActive(false);   
     }
 
     // Update is called once per frame
@@ -153,6 +177,15 @@ public class Player : NetworkBehaviour {
             animacao.SetBool("Andando", true);
             animacao.SetBool("Morte", false);
 
+        }
+
+        //PEGA ISSAQUI TBM
+        if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if(ignoredCollider!=null)
+            {
+                Physics2D.IgnoreCollision(playerCollider, ignoredCollider);
+            }
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
