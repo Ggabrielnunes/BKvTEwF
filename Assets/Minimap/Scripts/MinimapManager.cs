@@ -18,8 +18,12 @@ namespace SideMiniMap {
         public LayerMask minimapLayer;
         public MinimapCamera minimapCamera;
         public Sprite allySprite;
+        public Sprite allyDeathSprite;
         public Sprite playerSprite;
+        public Sprite playerDeathSprite;
         public Sprite enemySprite;
+        public Sprite enemyDeathSprite;
+
         private List<MinimapMarker> _markerList;
 
         void Awake()
@@ -51,16 +55,53 @@ namespace SideMiniMap {
                 {
                     case TYPE.PLAYER:
                         p_marker.SetSprite(playerSprite);
+                        p_marker.SetMarkerType(TYPE.PLAYER);
                         break;
                     case TYPE.ALLY:
                         p_marker.SetSprite(allySprite);
+                        p_marker.SetMarkerType(TYPE.ALLY);
                         break;
                     case TYPE.ENEMY:
                         p_marker.SetSprite(enemySprite);
+                        p_marker.SetMarkerType(TYPE.ENEMY);
                         break;
                 }
                 _markerList.Add(p_marker);               
             }
+        }
+
+        public void MarkerDied(MinimapMarker p_marker)
+        {
+            switch (p_marker.GetMarkerType())
+            {
+                case TYPE.PLAYER:
+                    p_marker.SetSprite(playerDeathSprite);
+                    break;
+                case TYPE.ALLY:
+                    p_marker.SetSprite(allyDeathSprite);
+                    break;
+                case TYPE.ENEMY:
+                    p_marker.SetSprite(enemyDeathSprite);
+                    break;
+            }
+            p_marker.shouldFollow = false;
+        }
+
+        public void ResetMarkerSprite(MinimapMarker p_marker)
+        {
+            switch (p_marker.GetMarkerType())
+            {
+                case TYPE.PLAYER:
+                    p_marker.SetSprite(playerSprite);
+                    break;
+                case TYPE.ALLY:
+                    p_marker.SetSprite(allySprite);
+                    break;
+                case TYPE.ENEMY:
+                    p_marker.SetSprite(enemySprite);
+                    break;
+            }
+            p_marker.shouldFollow = true;
         }
     }
 }
