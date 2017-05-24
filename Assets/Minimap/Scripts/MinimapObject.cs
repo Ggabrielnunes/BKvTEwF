@@ -12,18 +12,38 @@ namespace SideMiniMap
         public MinimapManager minimapManager;
         private bool _init = false;
 
-        public void OnEnable()
+        public void SetType(TYPE p_type)
+        {
+            objectType = p_type;
+        }
+
+        public void EnableMarker()
         {
             if(minimapManager==null)
             {
                 minimapManager = FindObjectOfType<MinimapManager>();
             }
-            if(!_init && marker!=null)
+            if(marker!=null)
             {
-                marker = Instantiate(marker);
-                marker.Initialize(targetTransform);
-                minimapManager.AddNewMarker(marker, objectType);
-                _init = true;
+                if(!_init)
+                {
+                    marker = Instantiate(marker);
+                    marker.Initialize(targetTransform);
+                    minimapManager.AddNewMarker(marker, objectType);
+                    _init = true;
+                }
+                else
+                {
+                    minimapManager.ResetMarkerSprite(marker);
+                }
+            }
+        }
+
+        public void MarkerDeath()
+        {
+            if(_init)
+            {
+                minimapManager.MarkerDied(marker);
             }
         }
     }
