@@ -20,6 +20,8 @@ public class TowerTomate : NetworkBehaviour {
     {
         vida -= dano;
     }
+    public void CmdFerdinandez()
+    { }
     public void CmdAtira(int tadentro)
     {
         if (tadentro == 1)

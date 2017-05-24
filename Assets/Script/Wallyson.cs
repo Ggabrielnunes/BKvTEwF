@@ -8,11 +8,16 @@ public class Wallyson : NetworkBehaviour
 
     public int vida;
     public GameObject inimigo;
+    public bool ferdinandez;
 
     [Command]
     public void CmdRecebeDano(int dano)
     {
         vida -= dano;
+    }
+    public void CmdFerdinandez()
+    {
+        ferdinandez = true;
     }
 
     void Start()
@@ -26,7 +31,11 @@ public class Wallyson : NetworkBehaviour
 
         if (vida <= 0)
         {
-            inimigo.SendMessage("CmdGanho");
+            if(ferdinandez)
+                inimigo.SendMessage("CmdFerdinandez");
+            else
+                inimigo.SendMessage("CmdGanho");
+
             this.gameObject.SetActive(false);
         }
     }

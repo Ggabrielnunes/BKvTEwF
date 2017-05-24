@@ -49,8 +49,10 @@ public class BalaBatata : NetworkBehaviour {
     {
 
         if (!vivo)
-            return;
-
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+        }
+        else
         distancia = Vector3.Distance(this.transform.position, new Vector3(0.0f, 0.0f, 0.0f));
     }
 }
