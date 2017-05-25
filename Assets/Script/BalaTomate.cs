@@ -4,53 +4,48 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class BalaTomate: NetworkBehaviour {
-    float origem;
-    public float distancia;
     bool vivo;
-
+    public GameObject Banana;
 
     void Start()
     {
         vivo = true;
-        distancia = 0;
     }
 
     void OnTriggerEnter2D(Collider2D Colisao)
     {
         if (vivo)
         {
-            if (Colisao.gameObject.tag == "Batata" || Colisao.gameObject.tag == "TorreBatata" || Colisao.gameObject.tag == "MinionBK")
+            if (Colisao.gameObject.tag == "Batata" || Colisao.gameObject.tag == "TorreBatata" || Colisao.gameObject.tag == "MinionBK" || Colisao.gameObject.tag == "TronoBatata")
             {
                 Colisao.SendMessage("CmdRecebeDano", 2);
+                if (this.gameObject.tag == ("BalaBanana"))
+                    Banana.SendMessage("CmdMunicao", 1);
                 NetworkServer.Destroy(this.gameObject);
             }
 
-            if (Colisao.gameObject.tag == "Plataforma")
+            if (Colisao.gameObject.tag == "Plataforma" || Colisao.gameObject.layer == 9)
             {
                 vivo = false;
             }
         }
         else
         {
-            if (this.gameObject.tag == "BalaBanana")
-            {
-                if (Colisao.gameObject.tag == "Batata")
+            if (Colisao.gameObject.tag == "Batata")
                 {
                     Colisao.SendMessage("CmdSlow");
+                    Destroy(this.gameObject);
                 }
-            }
-
-            if (Colisao.gameObject.tag != "Plataforma")
+            else if (Colisao.gameObject.tag == "TorreBatata" || Colisao.gameObject.tag == "MinionBK" || Colisao.gameObject.tag == "TronoBatata")
                 Destroy(this.gameObject);
         }
     }
 
     void Update()
     {
-
         if (!vivo)
-            return;
-
-        distancia = Vector3.Distance(this.transform.position, new Vector3(0.0f, 0.0f, 0.0f));
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+        }
     }
 }

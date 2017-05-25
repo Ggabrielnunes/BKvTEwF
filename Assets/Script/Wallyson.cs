@@ -31,12 +31,21 @@ public class Wallyson : NetworkBehaviour
 
         if (vida <= 0)
         {
-            if(ferdinandez)
+            if (ferdinandez)
                 inimigo.SendMessage("CmdFerdinandez");
             else
                 inimigo.SendMessage("CmdGanho");
 
             this.gameObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D Colisao)
+    {
+        if (Colisao.gameObject.tag == "Tomate")
+        {
+            Colisao.SendMessage("CmdCura", 8000);
+            Colisao.SendMessage("CmdMunicao", 8000);
         }
     }
 }

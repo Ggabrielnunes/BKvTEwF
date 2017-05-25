@@ -4,55 +4,74 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class BalaBatata : NetworkBehaviour {
-    float origem;
-    public float distancia;
     bool vivo;
-
+    public float enoix;
 
     void Start()
     {
         vivo = true;
-        distancia = 0;
+        enoix = 0;
     }
 
     void OnTriggerEnter2D(Collider2D Colisao)
     {
         if (vivo)
         {
-            if (Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "TorreTomate" || Colisao.gameObject.tag == "MinionTE")
+            if (this.gameObject.tag != "EspecialBrocolis")
             {
-                Colisao.SendMessage("CmdRecebeDano", 2);
-                NetworkServer.Destroy(this.gameObject);
+                if (Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "TorreTomate" || Colisao.gameObject.tag == "MinionTE" || Colisao.gameObject.tag == "TronoTomate")
+                {
+                    Colisao.SendMessage("CmdRecebeDano", 2);
+                    NetworkServer.Destroy(this.gameObject);
+                }
+            }
+            else
+            {
+                if (Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "TorreTomate" || Colisao.gameObject.tag == "MinionTE" || Colisao.gameObject.tag == "TronoTomate")
+                {
+                    Colisao.SendMessage("CmdRecebeDano", 1);
+                    NetworkServer.Destroy(this.gameObject);
+                }
+                if (Colisao.gameObject.tag == "Batata" && enoix >= 0.7)
+                {
+                    Colisao.SendMessage("CmdCura", 3);
+                    NetworkServer.Destroy(this.gameObject);
+                }
             }
 
-            if (Colisao.gameObject.tag == "Plataforma")
+            if (Colisao.gameObject.tag == "Plataforma" || Colisao.gameObject.layer == 9)
             {
                 vivo = false;
             }
         }
         else
         {
-            if (this.gameObject.tag == "BalaBrocolis")
+            if (this.gameObject.tag == "EspecialBrocolis")
             {
-                if (Colisao.gameObject.tag == "Batata")
+                if (Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "TorreTomate" || Colisao.gameObject.tag == "MinionTE" || Colisao.gameObject.tag == "TronoTomate")
                 {
-                    Colisao.SendMessage("CmdCura", 1);
+                    Colisao.SendMessage("CmdRecebeDano", 1);
+                    NetworkServer.Destroy(this.gameObject);
+                }
+                if (Colisao.gameObject.tag == "Batata" && enoix >= 0.7)
+                {
+                    Colisao.SendMessage("CmdCura", 3);
+                    NetworkServer.Destroy(this.gameObject);
                 }
             }
-
-            if (Colisao.gameObject.tag != "Plataforma")
-                Destroy(this.gameObject);
+            else if (Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "TorreTomate" || Colisao.gameObject.tag == "MinionTE" || Colisao.gameObject.tag == "TronoTomate")
+                NetworkServer.Destroy(this.gameObject);
         }
     }
 
     void Update()
     {
+        if (enoix < 0.7)
+            enoix += 1 * Time.deltaTime;
 
         if (!vivo)
         {
             this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
         }
-        else
-        distancia = Vector3.Distance(this.transform.position, new Vector3(0.0f, 0.0f, 0.0f));
     }
 }

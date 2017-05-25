@@ -9,10 +9,11 @@ public class TowerTomate : NetworkBehaviour {
     public int dano;
     public GameObject bala;
     public GameObject inimigo;
+    public GameObject msmalvo;
     public Vector2 direcao;
     public float firerate;
-
-    int entro = 0;
+    public float fireratemax;
+    
     float direcaoX;
 
     [Command]
@@ -22,20 +23,18 @@ public class TowerTomate : NetworkBehaviour {
     }
     public void CmdFerdinandez()
     { }
-    public void CmdAtira(int tadentro)
+    public void CmdAtira(GameObject alvo)
     {
-        if (tadentro == 1)
-            entro = 1;
-        else if (tadentro == 2)
-            entro = 2;
-        else
-            entro = 1;
+        inimigo = alvo;
     }
 
     void Start () {
         vida = 5;
         dano = 1;
         bala = Resources.Load("Bala Torre Tomate") as GameObject;
+        firerate = 2;
+        fireratemax = 2;
+        msmalvo = null;
     }
     
 
@@ -46,16 +45,25 @@ public class TowerTomate : NetworkBehaviour {
         if (vida <= 0)
             this.gameObject.SetActive(false);
 
-        firerate += 1 * Time.deltaTime;
-
-        if (entro != 0 && firerate >= 1)
+        if (firerate < 2)
         {
-            firerate = 0;
-
-            if (entro == 1)
-                inimigo = GameObject.FindGameObjectWithTag("Tomate");
+            firerate += 1 * Time.deltaTime;
+        }
+        if (inimigo != null && firerate >= fireratemax)
+        {
+            if (inimigo == msmalvo)
+            {
+                fireratemax = fireratemax / 1.4f;
+                if (fireratemax <= 0.3f)
+                    fireratemax = 0.3f;
+            }
             else
-                inimigo = GameObject.FindGameObjectWithTag("MinionTE");
+            {
+                msmalvo = inimigo;
+                fireratemax = 2;
+            }
+
+            firerate = 0;
 
             if (this.transform.position.x - inimigo.transform.position.x > 20)
                 return;

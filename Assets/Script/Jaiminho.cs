@@ -39,4 +39,14 @@ public class Jaiminho : NetworkBehaviour
             this.gameObject.SetActive(false);
         }
     }
+
+        void OnTriggerEnter2D(Collider2D Colisao)
+    {
+            if (Colisao.gameObject.tag == "Batata")
+        {
+            Colisao.SendMessage("CmdCura", 8000);
+            Colisao.SendMessage("CmdMunicao", 8000);
+        }
+
+    }
 }

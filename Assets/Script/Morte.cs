@@ -9,9 +9,11 @@ public class Morte : NetworkBehaviour {
     {
         if (Colisao.gameObject.tag == "Batata" || Colisao.gameObject.tag == "Tomate")
             Colisao.SendMessage("CmdRecebeDano", 8000);
-        else if(Colisao.gameObject.tag == "colisor" || Colisao.gameObject.tag == "oiala")
-            { }
+        else if(Colisao.gameObject.tag == "colisor" || Colisao.gameObject.tag == "oiala" || Colisao.gameObject.tag == "Ferdinandez" || Colisao.gameObject.tag == "EspecialBanana")
+        { }
          else
             NetworkServer.Destroy(Colisao.gameObject);
+
+        
     }
 }

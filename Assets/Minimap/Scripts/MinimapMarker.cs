@@ -19,6 +19,7 @@ namespace SideMiniMap {
         public void Initialize(Transform p_target)
         {
             _targetTransform = p_target;
+            _shouldFollow = true;
         }
 
         public void MUpdate()

@@ -36,7 +36,7 @@ namespace SideMiniMap
                 {
                     minimapManager.ResetMarkerSprite(marker);
                 }
-            }
+            }            
         }
 
         public void MarkerDeath()

@@ -11,10 +11,14 @@ public class MinionBK : NetworkBehaviour {
 
     public Animator animacao;
     public GameObject modelo;
+    public GameObject Gerencia;
+    public GameObject Jogador;
+    public GameObject Jogador2;
     public float firerate;
     public int dano;
     
     public int vida;
+    public bool area;
 
     [Command]
     public void CmdRecebeDano(int dano)
@@ -23,6 +27,20 @@ public class MinionBK : NetworkBehaviour {
 
         if (vida <= 0)
         {
+            if (area)
+            {
+                if (Jogador != null)
+                {
+                    Jogador.SendMessage("CmdGold", 5);
+                    Gerencia.SendMessage("CmdScoreW", 50);
+                }
+                if (Jogador2 != null)
+                {
+                    Jogador.SendMessage("CmdGold", 5);
+                    Gerencia.SendMessage("CmdScoreW", 50);
+                }
+            }
+
             Destroy(this.gameObject);
         }
 
@@ -36,9 +54,30 @@ public class MinionBK : NetworkBehaviour {
             firerate = 0;
         }
     }
+    public void CmdGoldIn(GameObject playerIn)
+    {
+        if (Jogador == null)
+            Jogador = playerIn;
+        if (Jogador2 == null)
+            Jogador2 = playerIn;
 
+        area = true;
+
+    }
+    public void CmdGoldOut(GameObject playerOut)
+    {
+        if (Jogador == playerOut)
+            Jogador = null;
+        if (Jogador2 == playerOut)
+            Jogador2 = null;
+
+        if (Jogador == null && Jogador2 == null)
+            area = false;
+    }
     public void ChangeSpeed(float speed)
     {
+        if (speed < 0)
+            speed = speed * -1;
         velocidade = new Vector2(speed, 0.0f);
     }
 
@@ -55,6 +94,7 @@ public class MinionBK : NetworkBehaviour {
     void Update()
     {
 
+        Gerencia = GameObject.FindGameObjectWithTag("Controlador");
         firerate += 1 * Time.deltaTime;
 
         Movimentacao();

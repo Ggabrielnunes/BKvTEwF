@@ -1,0 +1,603 @@
+fileFormatVersion: 2
+guid: 06dfc01a89a5a574f9ea52bfe6e6ec7d
+timeCreated: 1495646694
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Ferdinandez:joint1
+    100004: Ferdinandez:joint2
+    100006: Ferdinandez:joint3
+    100008: Ferdinandez:polySurface10
+    100010: Ferdinandez:polySurface11
+    100012: Ferdinandez:polySurface16
+    100014: Ferdinandez:polySurface16 1
+    100016: Ferdinandez:polySurface17
+    100018: Ferdinandez:polySurface9
+    100020: Ferdinandez:pSphere2
+    100022: Ferdinandez:pSphere3
+    100024: Ferdinandez:pSphere4
+    100026: Ferdinandez:pSphere5
+    100028: Ferdinandez:pSphere6
+    100030: Ferdinandez:pSphere7
+    100032: Ferdinandez:transform10
+    100034: Ferdinandez:transform11
+    100036: Ferdinandez:transform12
+    100038: Ferdinandez:transform13
+    100040: Ferdinandez:transform14
+    100042: Ferdinandez:transform15
+    100044: Ferdinandez:transform16
+    100046: Ferdinandez:transform9
+    400000: //RootNode
+    400002: Ferdinandez:joint1
+    400004: Ferdinandez:joint2
+    400006: Ferdinandez:joint3
+    400008: Ferdinandez:polySurface10
+    400010: Ferdinandez:polySurface11
+    400012: Ferdinandez:polySurface16
+    400014: Ferdinandez:polySurface16 1
+    400016: Ferdinandez:polySurface17
+    400018: Ferdinandez:polySurface9
+    400020: Ferdinandez:pSphere2
+    400022: Ferdinandez:pSphere3
+    400024: Ferdinandez:pSphere4
+    400026: Ferdinandez:pSphere5
+    400028: Ferdinandez:pSphere6
+    400030: Ferdinandez:pSphere7
+    400032: Ferdinandez:transform10
+    400034: Ferdinandez:transform11
+    400036: Ferdinandez:transform12
+    400038: Ferdinandez:transform13
+    400040: Ferdinandez:transform14
+    400042: Ferdinandez:transform15
+    400044: Ferdinandez:transform16
+    400046: Ferdinandez:transform9
+    2300000: Ferdinandez:pSphere7
+    3300000: Ferdinandez:pSphere7
+    4300000: Ferdinandez:polySurface17
+    4300002: Ferdinandez:pSphere7
+    7400000: UpFerd
+    7400002: AtackFerd
+    7400004: DownFerd
+    7400006: DeathFerd
+    7400008: VictoryFerd
+    7400010: StartAtackFerd
+    9500000: //RootNode
+    13700000: Ferdinandez:polySurface17
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: UpFerd
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ferdinandez:joint1
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2/Ferdinandez:joint3
+        weight: 1
+      - path: Ferdinandez:polySurface11
+        weight: 1
+      - path: Ferdinandez:polySurface11/Ferdinandez:transform9
+        weight: 1
+      - path: Ferdinandez:polySurface16
+        weight: 1
+      - path: Ferdinandez:polySurface16/Ferdinandez:transform14
+        weight: 1
+      - path: Ferdinandez:polySurface17
+        weight: 1
+      - path: Ferdinandez:pSphere2
+        weight: 1
+      - path: Ferdinandez:pSphere2/Ferdinandez:transform15
+        weight: 1
+      - path: Ferdinandez:pSphere3
+        weight: 1
+      - path: Ferdinandez:pSphere3/Ferdinandez:transform16
+        weight: 1
+      - path: Ferdinandez:pSphere4
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9/Ferdinandez:transform13
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1/Ferdinandez:transform10
+        weight: 1
+      - path: Ferdinandez:pSphere5
+        weight: 1
+      - path: Ferdinandez:pSphere5/Ferdinandez:transform12
+        weight: 1
+      - path: Ferdinandez:pSphere6
+        weight: 1
+      - path: Ferdinandez:pSphere6/Ferdinandez:transform11
+        weight: 1
+      - path: Ferdinandez:pSphere7
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AtackFerd
+      takeName: Take 001
+      firstFrame: 48
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ferdinandez:joint1
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2/Ferdinandez:joint3
+        weight: 1
+      - path: Ferdinandez:polySurface11
+        weight: 1
+      - path: Ferdinandez:polySurface11/Ferdinandez:transform9
+        weight: 1
+      - path: Ferdinandez:polySurface16
+        weight: 1
+      - path: Ferdinandez:polySurface16/Ferdinandez:transform14
+        weight: 1
+      - path: Ferdinandez:polySurface17
+        weight: 1
+      - path: Ferdinandez:pSphere2
+        weight: 1
+      - path: Ferdinandez:pSphere2/Ferdinandez:transform15
+        weight: 1
+      - path: Ferdinandez:pSphere3
+        weight: 1
+      - path: Ferdinandez:pSphere3/Ferdinandez:transform16
+        weight: 1
+      - path: Ferdinandez:pSphere4
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9/Ferdinandez:transform13
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1/Ferdinandez:transform10
+        weight: 1
+      - path: Ferdinandez:pSphere5
+        weight: 1
+      - path: Ferdinandez:pSphere5/Ferdinandez:transform12
+        weight: 1
+      - path: Ferdinandez:pSphere6
+        weight: 1
+      - path: Ferdinandez:pSphere6/Ferdinandez:transform11
+        weight: 1
+      - path: Ferdinandez:pSphere7
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DownFerd
+      takeName: Take 001
+      firstFrame: 17
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ferdinandez:joint1
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2/Ferdinandez:joint3
+        weight: 1
+      - path: Ferdinandez:polySurface11
+        weight: 1
+      - path: Ferdinandez:polySurface11/Ferdinandez:transform9
+        weight: 1
+      - path: Ferdinandez:polySurface16
+        weight: 1
+      - path: Ferdinandez:polySurface16/Ferdinandez:transform14
+        weight: 1
+      - path: Ferdinandez:polySurface17
+        weight: 1
+      - path: Ferdinandez:pSphere2
+        weight: 1
+      - path: Ferdinandez:pSphere2/Ferdinandez:transform15
+        weight: 1
+      - path: Ferdinandez:pSphere3
+        weight: 1
+      - path: Ferdinandez:pSphere3/Ferdinandez:transform16
+        weight: 1
+      - path: Ferdinandez:pSphere4
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9/Ferdinandez:transform13
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1/Ferdinandez:transform10
+        weight: 1
+      - path: Ferdinandez:pSphere5
+        weight: 1
+      - path: Ferdinandez:pSphere5/Ferdinandez:transform12
+        weight: 1
+      - path: Ferdinandez:pSphere6
+        weight: 1
+      - path: Ferdinandez:pSphere6/Ferdinandez:transform11
+        weight: 1
+      - path: Ferdinandez:pSphere7
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DeathFerd
+      takeName: Take 001
+      firstFrame: 71
+      lastFrame: 84
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ferdinandez:joint1
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2/Ferdinandez:joint3
+        weight: 1
+      - path: Ferdinandez:polySurface11
+        weight: 1
+      - path: Ferdinandez:polySurface11/Ferdinandez:transform9
+        weight: 1
+      - path: Ferdinandez:polySurface16
+        weight: 1
+      - path: Ferdinandez:polySurface16/Ferdinandez:transform14
+        weight: 1
+      - path: Ferdinandez:polySurface17
+        weight: 1
+      - path: Ferdinandez:pSphere2
+        weight: 1
+      - path: Ferdinandez:pSphere2/Ferdinandez:transform15
+        weight: 1
+      - path: Ferdinandez:pSphere3
+        weight: 1
+      - path: Ferdinandez:pSphere3/Ferdinandez:transform16
+        weight: 1
+      - path: Ferdinandez:pSphere4
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9/Ferdinandez:transform13
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1/Ferdinandez:transform10
+        weight: 1
+      - path: Ferdinandez:pSphere5
+        weight: 1
+      - path: Ferdinandez:pSphere5/Ferdinandez:transform12
+        weight: 1
+      - path: Ferdinandez:pSphere6
+        weight: 1
+      - path: Ferdinandez:pSphere6/Ferdinandez:transform11
+        weight: 1
+      - path: Ferdinandez:pSphere7
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: VictoryFerd
+      takeName: Take 001
+      firstFrame: 85
+      lastFrame: 93
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ferdinandez:joint1
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2/Ferdinandez:joint3
+        weight: 1
+      - path: Ferdinandez:polySurface11
+        weight: 1
+      - path: Ferdinandez:polySurface11/Ferdinandez:transform9
+        weight: 1
+      - path: Ferdinandez:polySurface16
+        weight: 1
+      - path: Ferdinandez:polySurface16/Ferdinandez:transform14
+        weight: 1
+      - path: Ferdinandez:polySurface17
+        weight: 1
+      - path: Ferdinandez:pSphere2
+        weight: 1
+      - path: Ferdinandez:pSphere2/Ferdinandez:transform15
+        weight: 1
+      - path: Ferdinandez:pSphere3
+        weight: 1
+      - path: Ferdinandez:pSphere3/Ferdinandez:transform16
+        weight: 1
+      - path: Ferdinandez:pSphere4
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9/Ferdinandez:transform13
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1/Ferdinandez:transform10
+        weight: 1
+      - path: Ferdinandez:pSphere5
+        weight: 1
+      - path: Ferdinandez:pSphere5/Ferdinandez:transform12
+        weight: 1
+      - path: Ferdinandez:pSphere6
+        weight: 1
+      - path: Ferdinandez:pSphere6/Ferdinandez:transform11
+        weight: 1
+      - path: Ferdinandez:pSphere7
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StartAtackFerd
+      takeName: Take 001
+      firstFrame: 28
+      lastFrame: 47
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ferdinandez:joint1
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2
+        weight: 1
+      - path: Ferdinandez:joint1/Ferdinandez:joint2/Ferdinandez:joint3
+        weight: 1
+      - path: Ferdinandez:polySurface11
+        weight: 1
+      - path: Ferdinandez:polySurface11/Ferdinandez:transform9
+        weight: 1
+      - path: Ferdinandez:polySurface16
+        weight: 1
+      - path: Ferdinandez:polySurface16/Ferdinandez:transform14
+        weight: 1
+      - path: Ferdinandez:polySurface17
+        weight: 1
+      - path: Ferdinandez:pSphere2
+        weight: 1
+      - path: Ferdinandez:pSphere2/Ferdinandez:transform15
+        weight: 1
+      - path: Ferdinandez:pSphere3
+        weight: 1
+      - path: Ferdinandez:pSphere3/Ferdinandez:transform16
+        weight: 1
+      - path: Ferdinandez:pSphere4
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface9/Ferdinandez:transform13
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1
+        weight: 1
+      - path: Ferdinandez:pSphere4/Ferdinandez:polySurface10/Ferdinandez:polySurface16
+          1/Ferdinandez:transform10
+        weight: 1
+      - path: Ferdinandez:pSphere5
+        weight: 1
+      - path: Ferdinandez:pSphere5/Ferdinandez:transform12
+        weight: 1
+      - path: Ferdinandez:pSphere6
+        weight: 1
+      - path: Ferdinandez:pSphere6/Ferdinandez:transform11
+        weight: 1
+      - path: Ferdinandez:pSphere7
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 8
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

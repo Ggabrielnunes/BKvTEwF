@@ -1,0 +1,809 @@
+fileFormatVersion: 2
+guid: 8a3b32aefb054ed43b3750d35a4382a4
+timeCreated: 1495646695
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Laranja:_JinF7
+    100004: Laranja:joint1
+    100006: Laranja:joint10
+    100008: Laranja:joint10 1
+    100010: Laranja:joint11
+    100012: Laranja:joint11 1
+    100014: Laranja:joint12
+    100016: Laranja:joint12 1
+    100018: Laranja:joint13
+    100020: Laranja:joint2
+    100022: Laranja:joint2 1
+    100024: Laranja:joint3
+    100026: Laranja:joint3 1
+    100028: Laranja:joint4
+    100030: Laranja:joint4 1
+    100032: Laranja:joint5
+    100034: Laranja:joint5 1
+    100036: Laranja:joint6
+    100038: Laranja:joint6 1
+    100040: Laranja:joint7
+    100042: Laranja:joint7 1
+    100044: Laranja:joint8
+    100046: Laranja:joint8 1
+    100048: Laranja:joint9
+    100050: Laranja:joint9 1
+    100052: Laranja:pCube1
+    100054: Laranja:pCube2
+    100056: Laranja:pCube3
+    100058: Laranja:pCube4
+    100060: Laranja:polySurface2
+    100062: Laranja:polySurface3
+    100064: Laranja:pSphere1
+    100066: Laranja:pSphere2
+    100068: Laranja:transform1
+    100070: Laranja:transform2
+    100072: Laranja:transform3
+    100074: Laranja:transform4
+    100076: Laranja:transform5
+    400000: //RootNode
+    400002: Laranja:_JinF7
+    400004: Laranja:joint1
+    400006: Laranja:joint10
+    400008: Laranja:joint10 1
+    400010: Laranja:joint11
+    400012: Laranja:joint11 1
+    400014: Laranja:joint12
+    400016: Laranja:joint12 1
+    400018: Laranja:joint13
+    400020: Laranja:joint2
+    400022: Laranja:joint2 1
+    400024: Laranja:joint3
+    400026: Laranja:joint3 1
+    400028: Laranja:joint4
+    400030: Laranja:joint4 1
+    400032: Laranja:joint5
+    400034: Laranja:joint5 1
+    400036: Laranja:joint6
+    400038: Laranja:joint6 1
+    400040: Laranja:joint7
+    400042: Laranja:joint7 1
+    400044: Laranja:joint8
+    400046: Laranja:joint8 1
+    400048: Laranja:joint9
+    400050: Laranja:joint9 1
+    400052: Laranja:pCube1
+    400054: Laranja:pCube2
+    400056: Laranja:pCube3
+    400058: Laranja:pCube4
+    400060: Laranja:polySurface2
+    400062: Laranja:polySurface3
+    400064: Laranja:pSphere1
+    400066: Laranja:pSphere2
+    400068: Laranja:transform1
+    400070: Laranja:transform2
+    400072: Laranja:transform3
+    400074: Laranja:transform4
+    400076: Laranja:transform5
+    2300000: Laranja:pSphere2
+    3300000: Laranja:pSphere2
+    4300000: Laranja:polySurface3
+    4300002: Laranja:polySurface2
+    4300004: Laranja:pSphere2
+    7400000: IdleLar
+    7400002: WalkLar
+    7400004: AtackLar
+    7400006: JumpLar
+    7400008: DeathLar
+    7400010: AtackEndLar
+    9500000: //RootNode
+    13700000: Laranja:polySurface2
+    13700002: Laranja:polySurface3
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: IdleLar
+      takeName: Take 001
+      firstFrame: 9
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Laranja:_JinF7
+        weight: 1
+      - path: Laranja:_JinF7/Laranja:polySurface3
+        weight: 1
+      - path: Laranja:joint1
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2/Laranja:joint3
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5/Laranja:joint6
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8/Laranja:joint9
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11/Laranja:joint12
+        weight: 1
+      - path: Laranja:joint13
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1/Laranja:joint3 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1/Laranja:joint6 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1/Laranja:joint9 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1/Laranja:joint12
+          1
+        weight: 1
+      - path: Laranja:pCube1
+        weight: 1
+      - path: Laranja:pCube1/Laranja:transform4
+        weight: 1
+      - path: Laranja:pCube2
+        weight: 1
+      - path: Laranja:pCube2/Laranja:transform3
+        weight: 1
+      - path: Laranja:pCube3
+        weight: 1
+      - path: Laranja:pCube3/Laranja:transform2
+        weight: 1
+      - path: Laranja:pCube4
+        weight: 1
+      - path: Laranja:pCube4/Laranja:transform1
+        weight: 1
+      - path: Laranja:polySurface2
+        weight: 1
+      - path: Laranja:pSphere1
+        weight: 1
+      - path: Laranja:pSphere1/Laranja:transform5
+        weight: 1
+      - path: Laranja:pSphere2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: WalkLar
+      takeName: Take 001
+      firstFrame: 27
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Laranja:_JinF7
+        weight: 1
+      - path: Laranja:_JinF7/Laranja:polySurface3
+        weight: 1
+      - path: Laranja:joint1
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2/Laranja:joint3
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5/Laranja:joint6
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8/Laranja:joint9
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11/Laranja:joint12
+        weight: 1
+      - path: Laranja:joint13
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1/Laranja:joint3 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1/Laranja:joint6 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1/Laranja:joint9 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1/Laranja:joint12
+          1
+        weight: 1
+      - path: Laranja:pCube1
+        weight: 1
+      - path: Laranja:pCube1/Laranja:transform4
+        weight: 1
+      - path: Laranja:pCube2
+        weight: 1
+      - path: Laranja:pCube2/Laranja:transform3
+        weight: 1
+      - path: Laranja:pCube3
+        weight: 1
+      - path: Laranja:pCube3/Laranja:transform2
+        weight: 1
+      - path: Laranja:pCube4
+        weight: 1
+      - path: Laranja:pCube4/Laranja:transform1
+        weight: 1
+      - path: Laranja:polySurface2
+        weight: 1
+      - path: Laranja:pSphere1
+        weight: 1
+      - path: Laranja:pSphere1/Laranja:transform5
+        weight: 1
+      - path: Laranja:pSphere2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AtackLar
+      takeName: Take 001
+      firstFrame: 56
+      lastFrame: 56
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Laranja:_JinF7
+        weight: 1
+      - path: Laranja:_JinF7/Laranja:polySurface3
+        weight: 1
+      - path: Laranja:joint1
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2/Laranja:joint3
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5/Laranja:joint6
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8/Laranja:joint9
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11/Laranja:joint12
+        weight: 1
+      - path: Laranja:joint13
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1/Laranja:joint3 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1/Laranja:joint6 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1/Laranja:joint9 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1/Laranja:joint12
+          1
+        weight: 1
+      - path: Laranja:pCube1
+        weight: 1
+      - path: Laranja:pCube1/Laranja:transform4
+        weight: 1
+      - path: Laranja:pCube2
+        weight: 1
+      - path: Laranja:pCube2/Laranja:transform3
+        weight: 1
+      - path: Laranja:pCube3
+        weight: 1
+      - path: Laranja:pCube3/Laranja:transform2
+        weight: 1
+      - path: Laranja:pCube4
+        weight: 1
+      - path: Laranja:pCube4/Laranja:transform1
+        weight: 1
+      - path: Laranja:polySurface2
+        weight: 1
+      - path: Laranja:pSphere1
+        weight: 1
+      - path: Laranja:pSphere1/Laranja:transform5
+        weight: 1
+      - path: Laranja:pSphere2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: JumpLar
+      takeName: Take 001
+      firstFrame: 46
+      lastFrame: 51
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Laranja:_JinF7
+        weight: 1
+      - path: Laranja:_JinF7/Laranja:polySurface3
+        weight: 1
+      - path: Laranja:joint1
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2/Laranja:joint3
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5/Laranja:joint6
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8/Laranja:joint9
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11/Laranja:joint12
+        weight: 1
+      - path: Laranja:joint13
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1/Laranja:joint3 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1/Laranja:joint6 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1/Laranja:joint9 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1/Laranja:joint12
+          1
+        weight: 1
+      - path: Laranja:pCube1
+        weight: 1
+      - path: Laranja:pCube1/Laranja:transform4
+        weight: 1
+      - path: Laranja:pCube2
+        weight: 1
+      - path: Laranja:pCube2/Laranja:transform3
+        weight: 1
+      - path: Laranja:pCube3
+        weight: 1
+      - path: Laranja:pCube3/Laranja:transform2
+        weight: 1
+      - path: Laranja:pCube4
+        weight: 1
+      - path: Laranja:pCube4/Laranja:transform1
+        weight: 1
+      - path: Laranja:polySurface2
+        weight: 1
+      - path: Laranja:pSphere1
+        weight: 1
+      - path: Laranja:pSphere1/Laranja:transform5
+        weight: 1
+      - path: Laranja:pSphere2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DeathLar
+      takeName: Take 001
+      firstFrame: 66
+      lastFrame: 73
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Laranja:_JinF7
+        weight: 1
+      - path: Laranja:_JinF7/Laranja:polySurface3
+        weight: 1
+      - path: Laranja:joint1
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2/Laranja:joint3
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5/Laranja:joint6
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8/Laranja:joint9
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11/Laranja:joint12
+        weight: 1
+      - path: Laranja:joint13
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1/Laranja:joint3 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1/Laranja:joint6 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1/Laranja:joint9 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1/Laranja:joint12
+          1
+        weight: 1
+      - path: Laranja:pCube1
+        weight: 1
+      - path: Laranja:pCube1/Laranja:transform4
+        weight: 1
+      - path: Laranja:pCube2
+        weight: 1
+      - path: Laranja:pCube2/Laranja:transform3
+        weight: 1
+      - path: Laranja:pCube3
+        weight: 1
+      - path: Laranja:pCube3/Laranja:transform2
+        weight: 1
+      - path: Laranja:pCube4
+        weight: 1
+      - path: Laranja:pCube4/Laranja:transform1
+        weight: 1
+      - path: Laranja:polySurface2
+        weight: 1
+      - path: Laranja:pSphere1
+        weight: 1
+      - path: Laranja:pSphere1/Laranja:transform5
+        weight: 1
+      - path: Laranja:pSphere2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AtackEndLar
+      takeName: Take 001
+      firstFrame: 57
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Laranja:_JinF7
+        weight: 1
+      - path: Laranja:_JinF7/Laranja:polySurface3
+        weight: 1
+      - path: Laranja:joint1
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint2/Laranja:joint3
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint4/Laranja:joint5/Laranja:joint6
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint7/Laranja:joint8/Laranja:joint9
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11
+        weight: 1
+      - path: Laranja:joint1/Laranja:joint10/Laranja:joint11/Laranja:joint12
+        weight: 1
+      - path: Laranja:joint13
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint2 1/Laranja:joint3 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint4 1/Laranja:joint5 1/Laranja:joint6 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint7 1/Laranja:joint8 1/Laranja:joint9 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1
+        weight: 1
+      - path: Laranja:joint13/Laranja:joint10 1/Laranja:joint11 1/Laranja:joint12
+          1
+        weight: 1
+      - path: Laranja:pCube1
+        weight: 1
+      - path: Laranja:pCube1/Laranja:transform4
+        weight: 1
+      - path: Laranja:pCube2
+        weight: 1
+      - path: Laranja:pCube2/Laranja:transform3
+        weight: 1
+      - path: Laranja:pCube3
+        weight: 1
+      - path: Laranja:pCube3/Laranja:transform2
+        weight: 1
+      - path: Laranja:pCube4
+        weight: 1
+      - path: Laranja:pCube4/Laranja:transform1
+        weight: 1
+      - path: Laranja:polySurface2
+        weight: 1
+      - path: Laranja:pSphere1
+        weight: 1
+      - path: Laranja:pSphere1/Laranja:transform5
+        weight: 1
+      - path: Laranja:pSphere2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 8
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

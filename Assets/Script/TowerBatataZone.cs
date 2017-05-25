@@ -6,27 +6,25 @@ using UnityEngine.Networking;
 public class TowerBatataZone : NetworkBehaviour
 {
     public GameObject torre;
+    private GameObject alvo = null;
 
     void OnTriggerEnter2D(Collider2D Colisao)
     {
-        if (Colisao.gameObject.tag == "Tomate")
+        if (alvo == null && Colisao.gameObject != alvo)
         {
-            torre.SendMessage("CmdAtira", 1);
-        }
-        if (Colisao.gameObject.tag == "MinionTE")
-        {
-            torre.SendMessage("CmdAtira", 2);
+            if (Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "MinionTE")
+            {
+                alvo = Colisao.gameObject;
+                torre.SendMessage("CmdAtira", alvo);
+            }
         }
     }
     void OnTriggerExit2D(Collider2D Colisao)
     {
-        if (Colisao.gameObject.tag == "Tomate")
+        if (Colisao == alvo)
         {
-            torre.SendMessage("CmdAtira", 0);
-        }
-        if (Colisao.gameObject.tag == "MinionTE")
-        {
-            torre.SendMessage("CmdAtira", 0);
+            alvo = null;
+            torre.SendMessage("CmdAtira", null);
         }
     }
 }

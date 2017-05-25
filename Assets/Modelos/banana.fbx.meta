@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 5bd49a08865e15a42b39fe6a2b131c9d
-timeCreated: 1493267681
+guid: 74b6edd0a69346a40bd8d39b84c32938
+timeCreated: 1495646996
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -87,14 +87,14 @@ ModelImporter:
     3300000: Circle
     4300000: Circle2
     4300002: Circle
-    7400000: IdleBanana
+    7400000: AtackBan
     7400002: Armature.001|Armature.001|Armature.001|CircleAction.002|Armature.001|CircleA
     7400004: Armature.001|Circle|Circle|CircleAction.002|Circle|CircleAction.002
     7400006: Circle|Circle|Circle|CircleAction.002|Circle|CircleAction.002
-    7400008: WalkBanana
-    7400010: JumpBanana
-    7400012: AttackBanana
-    7400014: Mortebanana
+    7400008: Idleban
+    7400010: JumpBan
+    7400012: DeathBan
+    7400014: WalkBan
     9500000: //RootNode
     13700000: Circle2
   materials:
@@ -111,7 +111,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -119,10 +119,116 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: IdleBanana
+      name: AtackBan
       takeName: Armature.001|Armature.001|Armature.001|ArmatureAction.001|Armature.001|Armat
-      firstFrame: 5
-      lastFrame: 20
+      firstFrame: 18
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature.001
+        weight: 1
+      - path: Armature.001/Bone
+        weight: 1
+      - path: Armature.001/Bone/Bone_L
+        weight: 1
+      - path: Armature.001/Bone/Bone_L/Bone_L.001
+        weight: 1
+      - path: Armature.001/Bone/Bone_L/Bone_L.001/Bone_L.002
+        weight: 1
+      - path: Armature.001/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003
+        weight: 1
+      - path: Armature.001/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003/Bone_L.003_end
+        weight: 1
+      - path: Armature.001/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003/Bone_L.003_end/Bone_L.003_end_end
+        weight: 1
+      - path: Armature.001/Bone/Bone_R
+        weight: 1
+      - path: Armature.001/Bone/Bone_R/Bone_R.001
+        weight: 1
+      - path: Armature.001/Bone/Bone_R/Bone_R.001/Bone_R.002
+        weight: 1
+      - path: Armature.001/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003
+        weight: 1
+      - path: Armature.001/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003/Bone_R.003_end
+        weight: 1
+      - path: Armature.001/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003/Bone_R.003_end/Bone_R.003_end_end
+        weight: 1
+      - path: Armature.001/Bone_L.004
+        weight: 1
+      - path: Armature.001/Bone_L.004/Bone_L.005
+        weight: 1
+      - path: Armature.001/Bone_L.004/Bone_L.005/Bone_L.006
+        weight: 1
+      - path: Armature.001/Bone_L.004/Bone_L.005/Bone_L.006/Bone_L.007
+        weight: 1
+      - path: Armature.001/Bone_L.004/Bone_L.005/Bone_L.006/Bone_L.007/Bone_L.007_end
+        weight: 1
+      - path: Armature.001/Bone_L.004/Bone_L.005/Bone_L.006/Bone_L.007/Bone_L.007_end/Bone_L.007_end_end
+        weight: 1
+      - path: Armature.001/Bone_R.004
+        weight: 1
+      - path: Armature.001/Bone_R.004/Bone_R.005
+        weight: 1
+      - path: Armature.001/Bone_R.004/Bone_R.005/Bone_R.006
+        weight: 1
+      - path: Armature.001/Bone_R.004/Bone_R.005/Bone_R.006/Bone_R.007
+        weight: 1
+      - path: Armature.001/Bone_R.004/Bone_R.005/Bone_R.006/Bone_R.007/Bone_R.007_end
+        weight: 1
+      - path: Armature.001/Bone_R.004/Bone_R.005/Bone_R.006/Bone_R.007/Bone_R.007_end/Bone_R.007_end_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Camera.001
+        weight: 1
+      - path: Camera.002
+        weight: 1
+      - path: Camera.003
+        weight: 1
+      - path: Circle
+        weight: 1
+      - path: Circle2
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.002
+        weight: 1
+      - path: Lamp.003
+        weight: 1
+      - path: transform1
+        weight: 1
+      - path: transform2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idleban
+      takeName: Armature.001|Armature.001|Armature.001|ArmatureAction.001|Armature.001|Armat
+      firstFrame: 2
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -225,115 +331,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: WalkBanana
+      name: JumpBan
       takeName: Armature.001|Armature.001|Armature.001|ArmatureAction.001|Armature.001|Armat
-      firstFrame: 40
-      lastFrame: 52
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature.001
-        weight: 1
-      - path: Armature.001/Bone
-        weight: 1
-      - path: Armature.001/Bone/Bone_L
-        weight: 1
-      - path: Armature.001/Bone/Bone_L/Bone_L.001
-        weight: 1
-      - path: Armature.001/Bone/Bone_L/Bone_L.001/Bone_L.002
-        weight: 1
-      - path: Armature.001/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003
-        weight: 1
-      - path: Armature.001/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003/Bone_L.003_end
-        weight: 1
-      - path: Armature.001/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003/Bone_L.003_end/Bone_L.003_end_end
-        weight: 1
-      - path: Armature.001/Bone/Bone_R
-        weight: 1
-      - path: Armature.001/Bone/Bone_R/Bone_R.001
-        weight: 1
-      - path: Armature.001/Bone/Bone_R/Bone_R.001/Bone_R.002
-        weight: 1
-      - path: Armature.001/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003
-        weight: 1
-      - path: Armature.001/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003/Bone_R.003_end
-        weight: 1
-      - path: Armature.001/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003/Bone_R.003_end/Bone_R.003_end_end
-        weight: 1
-      - path: Armature.001/Bone_L.004
-        weight: 1
-      - path: Armature.001/Bone_L.004/Bone_L.005
-        weight: 1
-      - path: Armature.001/Bone_L.004/Bone_L.005/Bone_L.006
-        weight: 1
-      - path: Armature.001/Bone_L.004/Bone_L.005/Bone_L.006/Bone_L.007
-        weight: 1
-      - path: Armature.001/Bone_L.004/Bone_L.005/Bone_L.006/Bone_L.007/Bone_L.007_end
-        weight: 1
-      - path: Armature.001/Bone_L.004/Bone_L.005/Bone_L.006/Bone_L.007/Bone_L.007_end/Bone_L.007_end_end
-        weight: 1
-      - path: Armature.001/Bone_R.004
-        weight: 1
-      - path: Armature.001/Bone_R.004/Bone_R.005
-        weight: 1
-      - path: Armature.001/Bone_R.004/Bone_R.005/Bone_R.006
-        weight: 1
-      - path: Armature.001/Bone_R.004/Bone_R.005/Bone_R.006/Bone_R.007
-        weight: 1
-      - path: Armature.001/Bone_R.004/Bone_R.005/Bone_R.006/Bone_R.007/Bone_R.007_end
-        weight: 1
-      - path: Armature.001/Bone_R.004/Bone_R.005/Bone_R.006/Bone_R.007/Bone_R.007_end/Bone_R.007_end_end
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Camera.001
-        weight: 1
-      - path: Camera.002
-        weight: 1
-      - path: Camera.003
-        weight: 1
-      - path: Circle
-        weight: 1
-      - path: Circle2
-        weight: 1
-      - path: Lamp
-        weight: 1
-      - path: Lamp.001
-        weight: 1
-      - path: Lamp.002
-        weight: 1
-      - path: Lamp.003
-        weight: 1
-      - path: transform1
-        weight: 1
-      - path: transform2
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: JumpBanana
-      takeName: Armature.001|Armature.001|Armature.001|ArmatureAction.001|Armature.001|Armat
-      firstFrame: 40
+      firstFrame: 44
       lastFrame: 44
       wrapMode: 0
       orientationOffsetY: 0
@@ -437,10 +437,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: AttackBanana
+      name: DeathBan
       takeName: Armature.001|Armature.001|Armature.001|ArmatureAction.001|Armature.001|Armat
-      firstFrame: 20
-      lastFrame: 38
+      firstFrame: 59
+      lastFrame: 69
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -543,17 +543,17 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Mortebanana
+      name: WalkBan
       takeName: Armature.001|Armature.001|Armature.001|ArmatureAction.001|Armature.001|Armat
-      firstFrame: 60
-      lastFrame: 69
+      firstFrame: 41
+      lastFrame: 53
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -686,7 +686,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

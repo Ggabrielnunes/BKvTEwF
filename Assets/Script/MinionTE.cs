@@ -11,11 +11,15 @@ public class MinionTE : NetworkBehaviour
 
     public Animator animacao;
     public GameObject modelo;
+    public GameObject Gerencia;
+    public GameObject Jogador;
+    public GameObject Jogador2;
     public float firerate;
     public int dano;
 
     public int vida;
 
+    public bool area;
     [Command]
     public void CmdRecebeDano(int dano)
     {
@@ -23,9 +27,43 @@ public class MinionTE : NetworkBehaviour
 
         if (vida <= 0)
         {
+            if (area)
+            {
+                if (Jogador != null)
+                {
+                    Jogador.SendMessage("CmdGold", 5);
+                    Gerencia.SendMessage("CmdScoreJ", 50);
+                }
+                if (Jogador2 != null)
+                {
+                    Jogador.SendMessage("CmdGold", 5);
+                    Gerencia.SendMessage("CmdScoreJ", 50);
+                }
+            }
+
             Destroy(this.gameObject);
         }
 
+    }
+    public void CmdGoldIn(GameObject playerIn)
+    {
+        if (Jogador == null)
+            Jogador = playerIn;
+        if (Jogador2 == null)
+            Jogador2 = playerIn;
+
+        area = true;
+        
+    }
+    public void CmdGoldOut(GameObject playerOut)
+    {
+        if (Jogador == playerOut)
+            Jogador = null;
+        if (Jogador2 == playerOut)
+            Jogador2 = null;
+
+        if (Jogador == null && Jogador2 == null)
+            area = false;
     }
     public void CmdPorNarnia(GameObject inimigo)
     {
@@ -49,6 +87,8 @@ public class MinionTE : NetworkBehaviour
 
     public void ChangeSpeed(float speed)
     {
+        if (speed > 0)
+            speed = speed * -1;
         velocidade = new Vector2(speed, 0.0f);
     }
 
@@ -64,7 +104,7 @@ public class MinionTE : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Gerencia = GameObject.FindGameObjectWithTag("Controlador");
         firerate += 1 * Time.deltaTime;
 
         Movimentacao();

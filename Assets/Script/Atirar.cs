@@ -9,14 +9,15 @@ public class Atirar : NetworkBehaviour {
     public GameObject MinionBKTop;
     public GameObject MinionTE;
     public GameObject MinionTETop;
+    public GameObject selecaoUI;
     private void vai()
     {
         tempo = 10.0f;
         
             MinionBK = Resources.Load("MinionBKDown") as GameObject;
             MinionTE = Resources.Load("MinionTEDown") as GameObject;
-        MinionBKTop = Resources.Load("MinionBKTop") as GameObject;
-        MinionTETop = Resources.Load("MinionTETop") as GameObject;
+            MinionBKTop = Resources.Load("MinionBKTop") as GameObject;
+            MinionTETop = Resources.Load("MinionTETop") as GameObject;
 
         var Gera = Instantiate(MinionBK);
         Gera.transform.position = GameObject.FindGameObjectWithTag("BaseBatata").transform.position;
@@ -41,11 +42,19 @@ public class Atirar : NetworkBehaviour {
 
    void Update()
     {
+        selecaoUI = GameObject.FindGameObjectWithTag("PersonagensUI");
+        selecaoUI.GetComponent<Canvas>().enabled = false;
+
         if (tempo <= 0)
+        {
             vai();
+            vai();
+            vai();
+        }
         else
             tempo -= 1 * Time.deltaTime;
 
-        
+        if (GameObject.FindGameObjectWithTag("Ferdinandez") != null)
+            this.gameObject.SetActive(false);
     }
 }

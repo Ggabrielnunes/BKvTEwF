@@ -10,12 +10,14 @@ public class DetectorTop : MonoBehaviour {
     {
         if(collider.tag == "MinionBK" )
         {
+            
             var script = collider.GetComponent<MinionBK>();
             script.ChangeSpeed(moveSpeed);
             Debug.Log("Velocidade " + moveSpeed);
         }
-        else if (collider.tag == "MinionTE")
+        if (collider.tag == "MinionTE")
         {
+            moveSpeed = -1 * moveSpeed;
             var script = collider.GetComponent<MinionTE>();
             script.ChangeSpeed(moveSpeed);
             Debug.Log("Velocidade " + moveSpeed);

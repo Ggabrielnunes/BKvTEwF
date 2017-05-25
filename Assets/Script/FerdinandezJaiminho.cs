@@ -19,7 +19,11 @@ public class FerdinandezJaiminho : NetworkBehaviour {
             Mata = GameObject.FindGameObjectWithTag("Batata");
             player = true;
         }
-
+        if (Mata == null)
+        {
+            this.GetComponent<ParticleSystem>().Stop();
+            return;
+        }
         ataca += 1*Time.deltaTime;
         if (player)
         {
