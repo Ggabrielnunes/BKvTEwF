@@ -49,4 +49,12 @@ public class Jaiminho : NetworkBehaviour
         }
 
     }
+    void OnTriggerExit2D(Collider2D Colisao)
+    {
+        if (Colisao.gameObject.tag == "Batata")
+        {
+            Colisao.SendMessage("CmdSaiu");
+        }
+
+    }
 }

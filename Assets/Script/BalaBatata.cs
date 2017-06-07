@@ -6,11 +6,13 @@ using UnityEngine.Networking;
 public class BalaBatata : NetworkBehaviour {
     bool vivo;
     public float enoix;
+    private float time;
 
     void Start()
     {
         vivo = true;
         enoix = 0;
+        time = 0;
     }
 
     void OnTriggerEnter2D(Collider2D Colisao)
@@ -73,5 +75,11 @@ public class BalaBatata : NetworkBehaviour {
         {
             this.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
         }
+        if (time < 25)
+        {
+            time += 1 * Time.deltaTime;
+        }
+        else
+            NetworkServer.Destroy(this.gameObject);
     }
 }

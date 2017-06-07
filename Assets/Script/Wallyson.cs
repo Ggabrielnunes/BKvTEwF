@@ -48,4 +48,12 @@ public class Wallyson : NetworkBehaviour
             Colisao.SendMessage("CmdMunicao", 8000);
         }
     }
+    void OnTriggerExit2D(Collider2D Colisao)
+    {
+        if (Colisao.gameObject.tag == "Tomate")
+        {
+            Colisao.SendMessage("CmdSaiu");
+        }
+
+    }
 }

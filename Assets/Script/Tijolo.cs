@@ -54,6 +54,7 @@ public class Tijolo : NetworkBehaviour
 
     private AudioSource som;
     public AudioClip[] clip;
+    private bool loja;
 
     [SyncVar]
     public int vida;
@@ -115,12 +116,20 @@ public class Tijolo : NetworkBehaviour
 
         municao += tiro;
 
+        loja = true;
+
         if (municao >= 8000)
         {
             municao = 8000;
         }
+        
+    }
+    public void CmdSaiu()
+    {
+        if (!isServer)
+            return;
 
-        CmdUIVida();
+        loja = false;
     }
     public void CmdSlow()
     {
@@ -219,6 +228,7 @@ public class Tijolo : NetworkBehaviour
         seme = 1;
 
         som = this.gameObject.GetComponent<AudioSource>();
+        loja = false;
 
         for (int i = 0; i < vida; i++)
         {
@@ -315,7 +325,7 @@ public class Tijolo : NetworkBehaviour
 
     private void Movimentacao()
     {
-        if (Input.GetButtonDown("1"))
+        if (Input.GetButtonDown("1") && loja)
         {
 
             if (gold >= 10 * liqui)
@@ -324,7 +334,7 @@ public class Tijolo : NetworkBehaviour
                 liqui++;
             }
         }
-        if (Input.GetButtonDown("2"))
+        if (Input.GetButtonDown("2") && loja)
         {
 
             if (gold >= 10 * seme)
@@ -334,7 +344,7 @@ public class Tijolo : NetworkBehaviour
                 CmdCura(2);
             }
         }
-        if (Input.GetButtonDown("3"))
+        if (Input.GetButtonDown("3") && loja)
         {
 
             if (gold >= 10 * capa)
@@ -343,7 +353,7 @@ public class Tijolo : NetworkBehaviour
                 capa++;
             }
         }
-        if (Input.GetButtonDown("4"))
+        if (Input.GetButtonDown("4") && loja)
         {
 
             if (gold >= 10 * arco)

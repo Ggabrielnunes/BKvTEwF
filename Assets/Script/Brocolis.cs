@@ -51,6 +51,7 @@ public class Brocolis : NetworkBehaviour {
 
     private AudioSource som;
     public AudioClip[] clip;
+    private bool loja;
 
 
     [SyncVar]
@@ -112,11 +113,18 @@ public class Brocolis : NetworkBehaviour {
             return;
 
         municao += tiro;
-
+        loja = true;
         if (municao >= 24)
         {
             municao = 24;
         }
+    }
+    public void CmdSaiu()
+    {
+        if (!isServer)
+            return;
+
+        loja = false;
     }
     public void CmdSlow()
     {
@@ -208,6 +216,7 @@ public class Brocolis : NetworkBehaviour {
         UI = false;
         canva.SetActive(true);
         som = this.gameObject.GetComponent<AudioSource>();
+        loja = false;
 
         for (int i = 0; i < vida; i++)
         {
@@ -387,7 +396,7 @@ public class Brocolis : NetworkBehaviour {
             animacao.SetBool("Morte", false);
         }
 
-        if (Input.GetButtonDown("1"))
+        if (Input.GetButtonDown("1") && loja)
         {
             
             if(gold >= 10*liqui)
@@ -396,7 +405,7 @@ public class Brocolis : NetworkBehaviour {
                 liqui++;
             }
         }
-        if (Input.GetButtonDown("2"))
+        if (Input.GetButtonDown("2") && loja)
         {
 
             if (gold >= 10 * seme)
@@ -406,7 +415,7 @@ public class Brocolis : NetworkBehaviour {
                 CmdCura(2);
             }
         }
-        if (Input.GetButtonDown("3"))
+        if (Input.GetButtonDown("3") && loja)
         {
 
             if (gold >= 10 * capa)
@@ -415,7 +424,7 @@ public class Brocolis : NetworkBehaviour {
                 capa++;
             }
         }
-        if (Input.GetButtonDown("4"))
+        if (Input.GetButtonDown("4") && loja)
         {
 
             if (gold >= 10 * arco)

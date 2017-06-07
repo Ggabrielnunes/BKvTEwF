@@ -57,6 +57,7 @@ public class Banana : NetworkBehaviour
 
     private AudioSource som;
     public AudioClip[] clip;
+    private bool loja;
 
     [SyncVar]
     public int vida;
@@ -117,11 +118,19 @@ public class Banana : NetworkBehaviour
             return;
 
         municao += tiro;
+        loja = true;
 
         if (municao >= 12)
         {
             municao = 12;
         }
+    }
+    public void CmdSaiu()
+    {
+        if (!isServer)
+            return;
+
+        loja = false;
     }
     public void CmdSlow()
     {
@@ -207,6 +216,7 @@ public class Banana : NetworkBehaviour
         seme = 1;
 
         som = this.gameObject.GetComponent<AudioSource>();
+        loja = false;
 
         for (int i = 0; i < vida; i++)
         {
@@ -305,7 +315,7 @@ public class Banana : NetworkBehaviour
 
     private void Movimentacao()
     {
-        if (Input.GetButtonDown("1"))
+        if (Input.GetButtonDown("1") && loja)
         {
 
             if (gold >= 10 * liqui)
@@ -314,7 +324,7 @@ public class Banana : NetworkBehaviour
                 liqui++;
             }
         }
-        if (Input.GetButtonDown("2"))
+        if (Input.GetButtonDown("2") && loja)
         {
 
             if (gold >= 10 * seme)
@@ -324,7 +334,7 @@ public class Banana : NetworkBehaviour
                 CmdCura(2);
             }
         }
-        if (Input.GetButtonDown("3"))
+        if (Input.GetButtonDown("3") && loja)
         {
 
             if (gold >= 10 * capa)
@@ -333,7 +343,7 @@ public class Banana : NetworkBehaviour
                 capa++;
             }
         }
-        if (Input.GetButtonDown("4"))
+        if (Input.GetButtonDown("4") && loja)
         {
 
             if (gold >= 10 * arco)
