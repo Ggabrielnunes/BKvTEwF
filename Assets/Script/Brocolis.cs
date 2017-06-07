@@ -49,6 +49,9 @@ public class Brocolis : NetworkBehaviour {
     public int capa;
     public int seme;
 
+    private AudioSource som;
+    public AudioClip[] clip;
+
 
     [SyncVar]
     public int vida;
@@ -69,6 +72,8 @@ public class Brocolis : NetworkBehaviour {
 
         if (vida <= 0)
         {
+            som.clip = clip[0];
+            som.Play();
             RpcMorte();
             UI = true;
             vida = 10 + seme - 1;
@@ -129,6 +134,9 @@ public class Brocolis : NetworkBehaviour {
     }
     public void CmdAtaca()
     {
+        som.clip = clip[1];
+        som.Play();
+
         municao--;
 
         dano = 2 + (liqui - 1);
@@ -199,7 +207,7 @@ public class Brocolis : NetworkBehaviour {
         faleceu = 0;
         UI = false;
         canva.SetActive(true);
-
+        som = this.gameObject.GetComponent<AudioSource>();
 
         for (int i = 0; i < vida; i++)
         {
@@ -330,7 +338,11 @@ public class Brocolis : NetworkBehaviour {
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-
+            if(this.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
+            {
+                som.clip = clip[2];
+                som.Play();
+            }
             transform.Translate(0, 8 * Time.deltaTime + 0.1f, 0);
             idle = 0;
             animacao.SetBool("Pulo", true);
@@ -349,7 +361,6 @@ public class Brocolis : NetworkBehaviour {
         if (Input.GetButton("P"))
         {
             ferdinandezentra.GetComponent<FerdinandezEntrada>().enabled = true;
-            ferdinandezentra.GetComponent<MeshRenderer>().enabled = true;
         }
         if (Input.GetButton("O"))
         {

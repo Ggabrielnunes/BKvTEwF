@@ -23,6 +23,7 @@ public class FerdinandezWallyson : NetworkBehaviour {
         if (Mata == null)
         {
             this.GetComponent<ParticleSystem>().Stop();
+            this.gameObject.GetComponent<AudioSource>().Stop();
             return;
         }
         ataca += 1*Time.deltaTime;
@@ -37,6 +38,8 @@ public class FerdinandezWallyson : NetworkBehaviour {
         }
         else if (ataca >= 0.5f)
         {
+            if (!this.gameObject.GetComponent<AudioSource>().isPlaying)
+                this.gameObject.GetComponent<AudioSource>().Play();
             Mata.SendMessage("CmdFerdinandez");
             Mata.SendMessage("CmdRecebeDano", 1);
             ataca = 0;

@@ -53,6 +53,9 @@ public class Laranja : NetworkBehaviour
     public int capa;
     public int seme;
 
+    private AudioSource som;
+    public AudioClip[] clip;
+
     [SyncVar]
     public int vida;
     [SyncVar]
@@ -72,6 +75,8 @@ public class Laranja : NetworkBehaviour
 
         if (vida <= 0)
         {
+            som.clip = clip[0];
+            som.Play();
             RpcMorte();
             UI = true;
             vida = 10 + seme - 1;
@@ -151,6 +156,9 @@ public class Laranja : NetworkBehaviour
 
     public void CmdAtaca()
     {
+        
+       
+
         municao -= 6;
         if (municao < 0)
             municao = 0;
@@ -213,6 +221,8 @@ public class Laranja : NetworkBehaviour
         arco = 1;
         capa = 1;
         seme = 1;
+
+        som = this.gameObject.GetComponent<AudioSource>();
 
         for (int i = 0; i < vida; i++)
         {
@@ -383,7 +393,11 @@ public class Laranja : NetworkBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-
+            if (this.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
+            {
+                som.clip = clip[2];
+                som.Play();
+            }
             transform.Translate(0, 8 * Time.deltaTime + 0.1f, 0);
             idle = 0;
             animacao.SetBool("Pulo", true);
@@ -418,8 +432,15 @@ public class Laranja : NetworkBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
+            if (firerate > 0.1 && municao > 0)
+            {
+                som.clip = clip[1];
+                som.Play();
+            }
             if (firerate > 0.4 && municao > 0)
             {
+                
+
                 firerate = 0;
 
                 CmdAtaca();
@@ -428,6 +449,8 @@ public class Laranja : NetworkBehaviour
                 animacao.SetBool("Ataque", true);
                 animacao.SetBool("Morte", false);
             }
+            if (municao <= 0)
+                zona.GetComponent<ParticleSystem>().Stop();
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {

@@ -52,6 +52,9 @@ public class Tijolo : NetworkBehaviour
     public int capa;
     public int seme;
 
+    private AudioSource som;
+    public AudioClip[] clip;
+
     [SyncVar]
     public int vida;
     [SyncVar]
@@ -71,6 +74,8 @@ public class Tijolo : NetworkBehaviour
 
         if (vida <= 0)
         {
+            som.clip = clip[0];
+            som.Play();
             RpcMorte();
             UI = true;
             vida = 10 + seme - 1;
@@ -152,6 +157,9 @@ public class Tijolo : NetworkBehaviour
     
     public void CmdAtaca()
     {
+        som.clip = clip[1];
+        som.Play();
+
         dano = 3 + (liqui - 1);
 
         if(inimigo1 !=null)
@@ -209,6 +217,8 @@ public class Tijolo : NetworkBehaviour
         arco = 1;
         capa = 1;
         seme = 1;
+
+        som = this.gameObject.GetComponent<AudioSource>();
 
         for (int i = 0; i < vida; i++)
         {
@@ -376,7 +386,11 @@ public class Tijolo : NetworkBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-
+            if (this.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
+            {
+                som.clip = clip[2];
+                som.Play();
+            }
             transform.Translate(0, 8 * Time.deltaTime + 0.1f, 0);
             idle = 0;
             animacao.SetBool("Pulo", true);

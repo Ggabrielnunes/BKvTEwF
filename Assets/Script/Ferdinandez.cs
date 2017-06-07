@@ -6,6 +6,9 @@ public class Ferdinandez : MonoBehaviour {
 
     public int vida;
     public GameObject Gerencia;
+    public GameObject ferdModel;
+    public GameObject ferdJaim;
+    public GameObject ferdWall;
 
     public void CmdRecebeDano(int dano)
     {
@@ -24,7 +27,10 @@ public class Ferdinandez : MonoBehaviour {
         if (vida <= 0)
         {
             Gerencia.SendMessage("CmdAlianca");
-            this.gameObject.SetActive(false);
+            ferdModel.SetActive(false);
+            ferdWall.SetActive(false);
+            ferdJaim.SetActive(false);
+            this.enabled = false;
         }
     }
 }
