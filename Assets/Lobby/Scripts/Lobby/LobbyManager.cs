@@ -464,7 +464,7 @@ namespace Prototype.NetworkLobby
 
            return _temp;
         }
-
+        
         /* public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
          {
              GameObject player;

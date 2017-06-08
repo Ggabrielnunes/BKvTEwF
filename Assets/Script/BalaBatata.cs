@@ -21,7 +21,7 @@ public class BalaBatata : NetworkBehaviour {
         {
             if (this.gameObject.tag != "EspecialBrocolis")
             {
-                if (Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "TorreTomate" || Colisao.gameObject.tag == "MinionTE" || Colisao.gameObject.tag == "TronoTomate")
+                if (Colisao.gameObject.tag == "Ferdinandez" || Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "TorreTomate" || Colisao.gameObject.tag == "MinionTE" || Colisao.gameObject.tag == "TronoTomate")
                 {
                     Colisao.SendMessage("CmdRecebeDano", 2);
                     NetworkServer.Destroy(this.gameObject);
@@ -29,7 +29,7 @@ public class BalaBatata : NetworkBehaviour {
             }
             else
             {
-                if (Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "TorreTomate" || Colisao.gameObject.tag == "MinionTE" || Colisao.gameObject.tag == "TronoTomate")
+                if (Colisao.gameObject.tag == "Ferdinandez" || Colisao.gameObject.tag == "Tomate" || Colisao.gameObject.tag == "TorreTomate" || Colisao.gameObject.tag == "MinionTE" || Colisao.gameObject.tag == "TronoTomate")
                 {
                     Colisao.SendMessage("CmdRecebeDano", 1);
                     NetworkServer.Destroy(this.gameObject);

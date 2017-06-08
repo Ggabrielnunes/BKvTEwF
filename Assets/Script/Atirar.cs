@@ -42,8 +42,8 @@ public class Atirar : NetworkBehaviour {
 
    void Update()
     {
-        selecaoUI = GameObject.FindGameObjectWithTag("PersonagensUI");
-        selecaoUI.GetComponent<Canvas>().enabled = false;
+        //selecaoUI = GameObject.FindGameObjectWithTag("PersonagensUI");
+        //selecaoUI.GetComponent<Canvas>().enabled = false;
 
         if (tempo <= 0)
         {

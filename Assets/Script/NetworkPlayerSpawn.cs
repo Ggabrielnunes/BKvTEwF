@@ -21,7 +21,7 @@ public class NetworkPlayerSpawn : NetworkManager {
 
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
-        GameObject player;
+       /* GameObject player;
 
         selecaoUI = GameObject.FindGameObjectWithTag("PersonagensUI");
         //selecaoUI.GetComponent<Canvas>().enabled = false;
@@ -68,7 +68,7 @@ public class NetworkPlayerSpawn : NetworkManager {
         if (jogado > 4)
             jogado = 1;
         
-
+    */
     }
 
 }
