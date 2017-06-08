@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 using SideMiniMap;
+using UnityEngine.UI;
 
 public class Brocolis : NetworkBehaviour {
 
@@ -52,7 +53,13 @@ public class Brocolis : NetworkBehaviour {
     private AudioSource som;
     public AudioClip[] clip;
     private bool loja;
-
+    public Text countGold;
+    public Text countMunicao;
+    public Canvas lojaItem;
+    public Text valor;
+    public Text valor2;
+    public Text valor3;
+    public Text valor4;
 
     [SyncVar]
     public int vida;
@@ -139,7 +146,8 @@ public class Brocolis : NetworkBehaviour {
             lento = 3;
         }
     }
-    public void CmdFerdinandez()
+
+     public void CmdFerdinandez()
     {
         ferdinandez = true;
     }
@@ -149,7 +157,6 @@ public class Brocolis : NetworkBehaviour {
         som.Play();
 
         municao--;
-
         dano = 2 + (liqui - 1);
 
         bala = Resources.Load("Bala Batata") as GameObject;
@@ -168,6 +175,7 @@ public class Brocolis : NetworkBehaviour {
             bullet.GetComponent<ParticleSystem>().Play();
         }
         NetworkServer.Spawn(bullet);
+        setCountText2();
     }
     public void CmdGold(int money)
     {
@@ -175,6 +183,37 @@ public class Brocolis : NetworkBehaviour {
             return;
 
         gold += money;
+        SetCountText();
+    }
+
+    void SetCountText()
+    {
+        countGold.text = "Peças: " + gold.ToString();
+    }
+
+    void setCountText2()
+    {
+        countMunicao.text = "Municao " + municao.ToString();
+    }
+
+    void SetCountText3()
+    {
+        valor.text = "Peças: " + (liqui * 10).ToString();
+    }
+
+    void SetCountText4()
+    {
+        valor2.text = "Peças: " + (seme * 10).ToString();
+    }
+
+    void SetCountText5()
+    {
+        valor3.text = "Peças: " + (capa * 10).ToString();
+    }
+
+    void SetCountText6()
+    {
+        valor4.text = "Peças: " + (arco * 10).ToString();
     }
 
     [ClientRpc]
@@ -220,6 +259,14 @@ public class Brocolis : NetworkBehaviour {
         canva.SetActive(true);
         som = this.gameObject.GetComponent<AudioSource>();
         loja = false;
+        lojaItem.GetComponent<Canvas>().enabled = false;
+
+        countGold.text = "Gold: " + gold.ToString();
+        countMunicao.text = "Municao " + municao.ToString();
+        valor.text = "Peças: " + (liqui * 10).ToString();
+        valor.text = "Peças: " + (seme * 10).ToString();
+        valor.text = "Peças: " + (capa * 10).ToString();
+        valor.text = "Peças: " + (arco * 10).ToString();
 
         CmdUIVida();
 
@@ -282,6 +329,18 @@ public class Brocolis : NetworkBehaviour {
             UI = false;
             CmdUIVida();
         }
+
+
+        if(loja)
+        {
+            lojaItem.GetComponent<Canvas>().enabled = true;
+            // lojaItem
+        }
+        else
+        {
+            lojaItem.GetComponent<Canvas>().enabled = false;
+        }
+
 
         ferdinandezentra = GameObject.FindGameObjectWithTag("FerdinandezFundo");
 
@@ -404,6 +463,7 @@ public class Brocolis : NetworkBehaviour {
                 gold -= 10 * liqui;
                 liqui++;
             }
+            SetCountText3();
         }
         if (Input.GetButtonDown("2") && loja)
         {
@@ -414,6 +474,7 @@ public class Brocolis : NetworkBehaviour {
                 seme++;
                 CmdCura(2);
             }
+            SetCountText4();
         }
         if (Input.GetButtonDown("3") && loja)
         {
@@ -423,6 +484,7 @@ public class Brocolis : NetworkBehaviour {
                 gold -= 10 * capa;
                 capa++;
             }
+            SetCountText5();
         }
         if (Input.GetButtonDown("4") && loja)
         {
@@ -432,6 +494,7 @@ public class Brocolis : NetworkBehaviour {
                 gold -= 10 * arco;
                 arco++;
             }
+            SetCountText6();
         }
 
 
