@@ -14,7 +14,7 @@ public class NetworkPlayerSpawn : NetworkManager {
     public void Start()
     {
        jogado = 1;
-       jaera = false;
+       jaera = true;
 
     }
     
@@ -24,7 +24,7 @@ public class NetworkPlayerSpawn : NetworkManager {
         GameObject player;
 
         selecaoUI = GameObject.FindGameObjectWithTag("PersonagensUI");
-        selecaoUI.GetComponent<Canvas>().enabled = false;
+        //selecaoUI.GetComponent<Canvas>().enabled = false;
 
         if (!jaera)
         {
