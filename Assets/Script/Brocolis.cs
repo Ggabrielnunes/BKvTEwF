@@ -85,12 +85,15 @@ public class Brocolis : NetworkBehaviour {
     {
         for (int i = 0; i < 10; i++)
         {
-            BarraHP[i].SetActive(false);
+            if(BarraHP[i].transform.localPosition.z < 50)
+                BarraHP[i].transform.localPosition += new Vector3(0.0f, 0.0f, 1000.0f);
         }
 
         for (int i = 0; i < vida - seme + 1; i++)
         {
-            BarraHP[i].SetActive(true);
+            //BarraHP[i].SetActive(true);
+            if (BarraHP[i].transform.localPosition.z > -50)
+                BarraHP[i].transform.localPosition += new Vector3(0.0f, 0.0f, -1000.0f);
         }
     }
     public void CmdCura(int cura)
@@ -218,10 +221,7 @@ public class Brocolis : NetworkBehaviour {
         som = this.gameObject.GetComponent<AudioSource>();
         loja = false;
 
-        for (int i = 0; i < vida; i++)
-        {
-            BarraHP[i].SetActive(true);
-        }
+        CmdUIVida();
 
     Debug.Log("DFS");
         //LEO COPIA ISSO
