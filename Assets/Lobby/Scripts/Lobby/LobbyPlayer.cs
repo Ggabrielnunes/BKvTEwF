@@ -11,7 +11,8 @@ namespace Prototype.NetworkLobby
     //Any LobbyHook can then grab it and pass those value to the game player prefab (see the Pong Example in the Samples Scenes)
     public class LobbyPlayer : NetworkLobbyPlayer
     {
-        static Color[] Colors = new Color[] { Color.magenta, Color.red, Color.cyan, Color.blue, Color.green, Color.yellow };
+        
+        static Color[] Colors = new Color[] { new Color(0.80f, 0.52f, 0.247f, 1.0f), Color.green, Color.yellow, new Color(1.0f, 0.647f, 0.0f, 1.0f) };
         //used on server to avoid assigning the same color to two player
         static List<int> _colorInUse = new List<int>();
 
@@ -23,12 +24,15 @@ namespace Prototype.NetworkLobby
 
         public GameObject localIcone;
         public GameObject remoteIcone;
+        public GameObject index;
 
         //OnMyName function will be invoked on clients when server change the value of playerName
         [SyncVar(hook = "OnMyName")]
         public string playerName = "";
         [SyncVar(hook = "OnMyColor")]
         public Color playerColor = Color.white;
+        [SyncVar(hook = "OnMyChar")]
+        public int personagem = 0;
 
         public Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
         public Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
@@ -41,6 +45,10 @@ namespace Prototype.NetworkLobby
         //static Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
         //static Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
 
+        private void Update()
+        {
+            index = GameObject.FindGameObjectWithTag("LobbyManager");
+        }
 
         public override void OnClientEnterLobby()
         {
@@ -64,6 +72,8 @@ namespace Prototype.NetworkLobby
             //will be created with the right value currently on server
             OnMyName(playerName);
             OnMyColor(playerColor);
+            OnMyChar(personagem);
+
         }
 
         public override void OnStartAuthority()
@@ -195,6 +205,11 @@ namespace Prototype.NetworkLobby
             colorButton.GetComponent<Image>().color = newColor;
         }
 
+        public void OnMyChar(int newChar)
+        {
+            personagem = newChar;
+        }
+
         //===== UI Handler
 
         //Note that those handler use Command function, as we need to change the value on the server not locally
@@ -281,7 +296,8 @@ namespace Prototype.NetworkLobby
             {//else we add it
                 _colorInUse.Add(idx);
             }
-
+            personagem = idx;
+            index.GetComponent<LobbyManager>().Character(personagem);
             playerColor = Colors[idx];
         }
 

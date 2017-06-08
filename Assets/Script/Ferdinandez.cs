@@ -24,6 +24,11 @@ public class Ferdinandez : MonoBehaviour {
     {
         Gerencia = GameObject.FindGameObjectWithTag("Controlador");
 
+        if (Input.GetButton("I"))
+        {
+            vida = 0;
+
+        }
         if (vida <= 0)
         {
             Gerencia.SendMessage("CmdAlianca");

@@ -5,12 +5,16 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Types;
 using UnityEngine.Networking.Match;
 using System.Collections;
+using System.Collections.Generic;
 
 
 namespace Prototype.NetworkLobby
 {
+    
     public class LobbyManager : NetworkLobbyManager 
     {
+        public int index = 1;
+
         static short MsgKicked = MsgType.Highest + 1;
 
         static public LobbyManager s_Singleton;
@@ -275,6 +279,7 @@ namespace Prototype.NetworkLobby
         //But OnLobbyClientConnect isn't called on hosting player. So we override the lobbyPlayer creation
         public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short playerControllerId)
         {
+            
             GameObject obj = Instantiate(lobbyPlayerPrefab.gameObject) as GameObject;
 
             LobbyPlayer newPlayer = obj.GetComponent<LobbyPlayer>();
@@ -417,5 +422,57 @@ namespace Prototype.NetworkLobby
             ChangeTo(mainMenuPanel);
             infoPanel.Display("Cient error : " + (errorCode == 6 ? "timeout" : errorCode.ToString()), "Close", null);
         }
+
+
+
+        public void Character(int pers)
+        {
+            index = pers;
+        }
+
+        public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId)
+        {
+            
+            GameObject _temp = null;
+
+            if (index == 0)
+            {
+                _temp = (GameObject)GameObject.Instantiate(spawnPrefabs[8],
+                    GameObject.FindGameObjectWithTag("BaseBatata").transform.position,
+                    Quaternion.identity);
+            }
+            else if (index == 2)
+            {
+                _temp = (GameObject)GameObject.Instantiate(spawnPrefabs[10],
+                    GameObject.FindGameObjectWithTag("BaseTomate").transform.position,
+                    Quaternion.identity);
+            }
+            else if (index == 3)
+            {
+                _temp = (GameObject)GameObject.Instantiate(spawnPrefabs[11],
+                    GameObject.FindGameObjectWithTag("BaseTomate").transform.position,
+                    Quaternion.identity);
+            }
+            else
+            {
+                _temp = (GameObject)GameObject.Instantiate(spawnPrefabs[7],
+                    GameObject.FindGameObjectWithTag("BaseBatata").transform.position,
+                    Quaternion.identity);
+            }
+
+            //NetworkServer.AddPlayerForConnection(conn, _temp, playerControllerId);
+
+           return _temp;
+        }
+        
+        /* public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+         {
+             GameObject player;
+
+             player = Instantiate(Resources.Load("Banana"), GameObject.FindGameObjectWithTag("BaseBatata").transform.position, Quaternion.identity) as GameObject;
+
+             NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+
+         }*/
     }
 }
