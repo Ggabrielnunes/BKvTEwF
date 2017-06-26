@@ -27,7 +27,10 @@ public class TowerBatata : NetworkBehaviour {
     {
         inimigo = alvo;
     }
-
+    public void CmdPara()
+    {
+        inimigo = null;
+    }
     // Use this for initialization
     void Start () {
         vida = 5;

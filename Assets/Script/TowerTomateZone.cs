@@ -21,10 +21,10 @@ public class TowerTomateZone : NetworkBehaviour
     }
     void OnTriggerExit2D(Collider2D Colisao)
     {
-        if (Colisao == alvo)
+        if (Colisao.gameObject == alvo)
         {
             alvo = null;
-            torre.SendMessage("CmdAtira", null);
+            torre.SendMessage("CmdPara");
         }
     }
 }
