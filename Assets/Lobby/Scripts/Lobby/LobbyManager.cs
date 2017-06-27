@@ -430,9 +430,11 @@ namespace Prototype.NetworkLobby
             index = pers;
         }
 
-       public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId)
+        public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId)
         {
+            
             GameObject _temp = null;
+
             if (index == 0)
             {
                 _temp = (GameObject)GameObject.Instantiate(spawnPrefabs[8],
@@ -457,13 +459,9 @@ namespace Prototype.NetworkLobby
                     GameObject.FindGameObjectWithTag("BaseBatata").transform.position,
                     Quaternion.identity);
             }
-            
-             
-            //NetworkServer.ReplacePlayerForConnection(conn, _temp, playerControllerId);
-            Debug.Log(index);
-            Debug.Log(_temp);
-            Debug.Log(conn);
-            Debug.Log(playerControllerId);
+
+            //NetworkServer.AddPlayerForConnection(conn, _temp, playerControllerId);
+
            return _temp;
         }
         

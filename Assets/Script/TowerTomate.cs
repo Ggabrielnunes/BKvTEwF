@@ -27,10 +27,6 @@ public class TowerTomate : NetworkBehaviour {
     {
         inimigo = alvo;
     }
-    public void CmdPara()
-    {
-        inimigo = null;
-    }
 
     void Start () {
         vida = 5;
