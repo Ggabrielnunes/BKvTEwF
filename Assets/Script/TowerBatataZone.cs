@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class TowerBatataZone : NetworkBehaviour
 {
     public GameObject torre;
-    private GameObject alvo = null;
+    public GameObject alvo = null;
 
     void OnTriggerEnter2D(Collider2D Colisao)
     {
@@ -21,10 +21,10 @@ public class TowerBatataZone : NetworkBehaviour
     }
     void OnTriggerExit2D(Collider2D Colisao)
     {
-        if (Colisao == alvo)
+        if (Colisao.gameObject == alvo)
         {
             alvo = null;
-            torre.SendMessage("CmdAtira", null);
+            torre.SendMessage("CmdPara");
         }
     }
 }
