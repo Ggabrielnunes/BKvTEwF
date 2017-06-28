@@ -24,6 +24,7 @@ public class Brocolis : NetworkBehaviour {
     public float forcaPulo;
     public float tempo;
     public float idle;
+    public float startTime;
 
     public Animator animacao;
     public GameObject brocolis;
@@ -60,6 +61,7 @@ public class Brocolis : NetworkBehaviour {
     public Text valor2;
     public Text valor3;
     public Text valor4;
+    public Text timerText;
 
     [SyncVar]
     public int vida;
@@ -186,6 +188,13 @@ public class Brocolis : NetworkBehaviour {
         SetCountText();
     }
 
+    public void CmdMenosGold(int money)
+    {
+        if (!isServer)
+            return;
+        gold -= money;
+    }
+
     void SetCountText()
     {
         countGold.text = "Peças: " + gold.ToString();
@@ -259,6 +268,8 @@ public class Brocolis : NetworkBehaviour {
         canva.SetActive(true);
         som = this.gameObject.GetComponent<AudioSource>();
         loja = false;
+        startTime = Time.time;
+
         lojaItem.GetComponent<Canvas>().enabled = false;
 
         countGold.text = "Gold: " + gold.ToString();
@@ -341,6 +352,10 @@ public class Brocolis : NetworkBehaviour {
             lojaItem.GetComponent<Canvas>().enabled = false;
         }
 
+        float t = Time.time - startTime;
+        string minutes = ((int)t / 60).ToString();
+        string seconds = (t % 60).ToString("f0");
+        timerText.text = minutes + ":" + seconds;
 
         ferdinandezentra = GameObject.FindGameObjectWithTag("FerdinandezFundo");
 
@@ -481,10 +496,11 @@ public class Brocolis : NetworkBehaviour {
 
             if (gold >= 10 * capa)
             {
-                gold -= 10 * capa;
+                CmdMenosGold(10 * capa);
                 capa++;
             }
             SetCountText5();
+          
         }
         if (Input.GetButtonDown("4") && loja)
         {

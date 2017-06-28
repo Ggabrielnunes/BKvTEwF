@@ -2,6 +2,8 @@
 using System.Collections;
 using SideMiniMap;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+using System;
 
 public class Laranja : NetworkBehaviour
 {
@@ -24,6 +26,7 @@ public class Laranja : NetworkBehaviour
     public float forcaPulo;
     public float tempo;
     public float idle;
+    public float startTime;
 
     public Animator animacao;
     public GameObject laranja;
@@ -56,6 +59,15 @@ public class Laranja : NetworkBehaviour
     private AudioSource som;
     public AudioClip[] clip;
     private bool loja;
+    public Text countGold;
+    public Text countMunicao;
+    public Canvas lojaItem;
+    public Text valor;
+    public Text valor2;
+    public Text valor3;
+    public Text valor4;
+    public Text timerText;
+
 
     [SyncVar]
     public int vida;
@@ -122,6 +134,7 @@ public class Laranja : NetworkBehaviour
         {
             municao = 100;
         }
+
     }
     public void CmdSaiu()
     {
@@ -165,10 +178,11 @@ public class Laranja : NetworkBehaviour
 
     public void CmdAtaca()
     {
-        
-       
+
+
 
         municao -= 6;
+        setCountText2();
         if (municao < 0)
             municao = 0;
         dano = 1 + (liqui - 1);
@@ -188,7 +202,43 @@ public class Laranja : NetworkBehaviour
             return;
 
         gold += money;
+        SetCountText();
     }
+
+    void SetCountText()
+    {
+        countGold.text = "Peças: " + gold.ToString();
+    }
+
+    void setCountText2()
+    {
+        countMunicao.text = "Municao " + municao.ToString();
+    }
+
+    void SetCountText3()
+    {
+        valor.text = "Peças: " + (liqui * 10).ToString();
+    }
+
+    void SetCountText4()
+    {
+        valor2.text = "Peças: " + (seme * 10).ToString();
+    }
+
+    void SetCountText5()
+    {
+        valor3.text = "Peças: " + (capa * 10).ToString();
+    }
+
+    void SetCountText6()
+    {
+        valor4.text = "Peças: " + (arco * 10).ToString();
+    }
+
+    //void setCountText7()
+    //{
+    //    tempo.text = "Municao " + municao.ToString();
+    //}
 
     [ClientRpc]
     void RpcMorte()
@@ -230,9 +280,19 @@ public class Laranja : NetworkBehaviour
         arco = 1;
         capa = 1;
         seme = 1;
+        startTime = Time.time;
 
         som = this.gameObject.GetComponent<AudioSource>();
         loja = false;
+
+        lojaItem.GetComponent<Canvas>().enabled = false;
+
+        countGold.text = "Gold: " + gold.ToString();
+        countMunicao.text = "Municao " + municao.ToString();
+        valor.text = "Peças: " + (liqui * 10).ToString();
+        valor.text = "Peças: " + (seme * 10).ToString();
+        valor.text = "Peças: " + (capa * 10).ToString();
+        valor.text = "Peças: " + (arco * 10).ToString();
 
         for (int i = 0; i < vida; i++)
         {
@@ -300,6 +360,23 @@ public class Laranja : NetworkBehaviour
             UI = false;
             CmdUIVida();
         }
+
+
+        if (loja)
+        {
+            lojaItem.GetComponent<Canvas>().enabled = true;
+            // lojaItem
+        }
+        else
+        {
+            lojaItem.GetComponent<Canvas>().enabled = false;
+        }
+
+        float t = Time.time - startTime;
+        string minutes = ((int)t / 60).ToString();
+        string seconds = (t % 60).ToString("f0");
+        timerText.text = minutes + ":" + seconds;
+
         laranja = GameObject.FindGameObjectWithTag("Laranja");
         oiala = GameObject.FindGameObjectWithTag("ModeloLaranja");
         animacao = laranja.GetComponent<Animator>();
@@ -449,7 +526,7 @@ public class Laranja : NetworkBehaviour
             }
             if (firerate > 0.4 && municao > 0)
             {
-                
+
 
                 firerate = 0;
 
@@ -466,6 +543,51 @@ public class Laranja : NetworkBehaviour
         {
             zona.GetComponent<ParticleSystem>().Stop();
         }
+
+
+        if (Input.GetButtonDown("1") && loja)
+        {
+
+            if (gold >= 10 * liqui)
+            {
+                gold -= 10 * liqui;
+                liqui++;
+            }
+            SetCountText3();
+        }
+        if (Input.GetButtonDown("2") && loja)
+        {
+
+            if (gold >= 10 * seme)
+            {
+                gold -= 10 * seme;
+                seme++;
+                CmdCura(2);
+            }
+            SetCountText4();
+        }
+        if (Input.GetButtonDown("3") && loja)
+        {
+
+            if (gold >= 10 * capa)
+            {
+                gold -= 10 * capa;
+                capa++;
+            }
+            SetCountText5();
+        }
+        if (Input.GetButtonDown("4") && loja)
+        {
+
+            if (gold >= 10 * arco)
+            {
+                gold -= 10 * arco;
+                arco++;
+            }
+            SetCountText6();
+        }
+
+
 
         if (idle >= 0.1)
         {

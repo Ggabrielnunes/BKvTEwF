@@ -2,6 +2,7 @@
 using System.Collections;
 using SideMiniMap;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Banana : NetworkBehaviour
 {
@@ -23,6 +24,7 @@ public class Banana : NetworkBehaviour
     public float forcaPulo;
     public float tempo;
     public float idle;
+    public float startTime;
 
     public Animator animacao;
     public GameObject brocolis;
@@ -58,6 +60,14 @@ public class Banana : NetworkBehaviour
     private AudioSource som;
     public AudioClip[] clip;
     private bool loja;
+    public Text countGold;
+    public Text countMunicao;
+    public Canvas lojaItem;
+    public Text valor;
+    public Text valor2;
+    public Text valor3;
+    public Text valor4;
+    public Text timerText;
 
     [SyncVar]
     public int vida;
@@ -175,6 +185,44 @@ public class Banana : NetworkBehaviour
         gold += money;
     }
 
+    public void CmdMenosGold(int money)
+    {
+        if (!isServer)
+            return;
+        gold -= money;
+    }
+
+    void SetCountText()
+    {
+        countGold.text = "Peças: " + gold.ToString();
+    }
+
+    void setCountText2()
+    {
+        countMunicao.text = "Municao " + municao.ToString();
+    }
+
+    void SetCountText3()
+    {
+        valor.text = "Peças: " + (liqui * 10).ToString();
+    }
+
+    void SetCountText4()
+    {
+        valor2.text = "Peças: " + (seme * 10).ToString();
+    }
+
+    void SetCountText5()
+    {
+        valor3.text = "Peças: " + (capa * 10).ToString();
+    }
+
+    void SetCountText6()
+    {
+        valor4.text = "Peças: " + (arco * 10).ToString();
+    }
+
+
     [ClientRpc]
     void RpcMorte()
     {
@@ -214,9 +262,21 @@ public class Banana : NetworkBehaviour
         arco = 1;
         capa = 1;
         seme = 1;
+        startTime = Time.time;
 
         som = this.gameObject.GetComponent<AudioSource>();
         loja = false;
+
+
+        lojaItem.GetComponent<Canvas>().enabled = false;
+
+        countGold.text = "Gold: " + gold.ToString();
+        countMunicao.text = "Municao " + municao.ToString();
+        valor.text = "Peças: " + (liqui * 10).ToString();
+        valor.text = "Peças: " + (seme * 10).ToString();
+        valor.text = "Peças: " + (capa * 10).ToString();
+        valor.text = "Peças: " + (arco * 10).ToString();
+
 
         for (int i = 0; i < vida; i++)
         {
@@ -282,6 +342,23 @@ public class Banana : NetworkBehaviour
             UI = false;
             CmdUIVida();
         }
+
+
+        if (loja)
+        {
+            lojaItem.GetComponent<Canvas>().enabled = true;
+            // lojaItem
+        }
+        else
+        {
+            lojaItem.GetComponent<Canvas>().enabled = false;
+        }
+
+        float t = Time.time - startTime;
+        string minutes = ((int)t / 60).ToString();
+        string seconds = (t % 60).ToString("f0");
+        timerText.text = minutes + ":" + seconds;
+
         banana = GameObject.FindGameObjectWithTag("Banana");
         oiala = GameObject.FindGameObjectWithTag("ModeloBanana");
         if (oiala != null)
@@ -339,7 +416,7 @@ public class Banana : NetworkBehaviour
 
             if (gold >= 10 * capa)
             {
-                gold -= 10 * capa;
+                CmdMenosGold(10 * capa);
                 capa++;
             }
         }
