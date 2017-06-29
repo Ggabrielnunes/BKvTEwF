@@ -13,7 +13,7 @@ namespace Prototype.NetworkLobby
     
     public class LobbyManager : NetworkLobbyManager 
     {
-        public int index = 1;
+        public int selectChar = 1;
 
         static short MsgKicked = MsgType.Highest + 1;
 
@@ -427,10 +427,19 @@ namespace Prototype.NetworkLobby
 
         public void Character(int pers)
         {
-            index = pers;
+            selectChar = pers;
+            if (selectChar == 0)
+                gamePlayerPrefab = Resources.Load("Tijolo") as GameObject;
+            else if (selectChar == 2)
+                gamePlayerPrefab = Resources.Load("Banana") as GameObject;
+            else if (selectChar == 3)
+                gamePlayerPrefab = Resources.Load("Laranja") as GameObject;
+            else
+                gamePlayerPrefab = Resources.Load("Brocolis") as GameObject;
+            
         }
 
-       public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId)
+      /*public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId)
         {
             GameObject _temp = null;
             if (index == 0)
@@ -459,13 +468,13 @@ namespace Prototype.NetworkLobby
             }
             
              
-            //NetworkServer.ReplacePlayerForConnection(conn, _temp, playerControllerId);
-            Debug.Log(index);
-            Debug.Log(_temp);
-            Debug.Log(conn);
-            Debug.Log(playerControllerId);
+            NetworkServer.ReplacePlayerForConnection(conn, _temp, playerControllerId);
+            //Debug.Log(index);
+            //Debug.Log(_temp);
+            //Debug.Log(conn);
+            //Debug.Log(playerControllerId);
            return _temp;
-        }
+        }*/
         
         /* public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
          {

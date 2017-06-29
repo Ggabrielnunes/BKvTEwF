@@ -66,7 +66,12 @@ public class Laranja : NetworkBehaviour
     public Text valor2;
     public Text valor3;
     public Text valor4;
+    public Text valor8;
     public Text timerText;
+    public GameObject pontos;
+    public int score;
+    public RawImage skillItem;
+    public RawImage skillItem2;
 
 
     [SyncVar]
@@ -182,7 +187,6 @@ public class Laranja : NetworkBehaviour
 
 
         municao -= 6;
-        setCountText2();
         if (municao < 0)
             municao = 0;
         dano = 1 + (liqui - 1);
@@ -202,43 +206,25 @@ public class Laranja : NetworkBehaviour
             return;
 
         gold += money;
-        SetCountText();
     }
 
-    void SetCountText()
+    void textcanvas()
     {
         countGold.text = "Peças: " + gold.ToString();
-    }
 
-    void setCountText2()
-    {
         countMunicao.text = "Municao " + municao.ToString();
-    }
 
-    void SetCountText3()
-    {
         valor.text = "Peças: " + (liqui * 10).ToString();
-    }
 
-    void SetCountText4()
-    {
         valor2.text = "Peças: " + (seme * 10).ToString();
-    }
 
-    void SetCountText5()
-    {
         valor3.text = "Peças: " + (capa * 10).ToString();
-    }
 
-    void SetCountText6()
-    {
         valor4.text = "Peças: " + (arco * 10).ToString();
-    }
 
-    //void setCountText7()
-    //{
-    //    tempo.text = "Municao " + municao.ToString();
-    //}
+        valor8.text = "Equilibrio: " + score.ToString();
+        //Debug.Log("aaa: " + valor8.text);
+    }
 
     [ClientRpc]
     void RpcMorte()
@@ -281,11 +267,15 @@ public class Laranja : NetworkBehaviour
         capa = 1;
         seme = 1;
         startTime = Time.time;
+        score = 0;
 
         som = this.gameObject.GetComponent<AudioSource>();
         loja = false;
 
         lojaItem.GetComponent<Canvas>().enabled = false;
+
+        skillItem.GetComponent<RawImage>().enabled = false;
+        skillItem2.GetComponent<RawImage>().enabled = false;
 
         countGold.text = "Gold: " + gold.ToString();
         countMunicao.text = "Municao " + municao.ToString();
@@ -293,6 +283,7 @@ public class Laranja : NetworkBehaviour
         valor.text = "Peças: " + (seme * 10).ToString();
         valor.text = "Peças: " + (capa * 10).ToString();
         valor.text = "Peças: " + (arco * 10).ToString();
+        valor8.text = score.ToString();
 
         for (int i = 0; i < vida; i++)
         {
@@ -361,6 +352,9 @@ public class Laranja : NetworkBehaviour
             CmdUIVida();
         }
 
+        pontos = GameObject.FindGameObjectWithTag("Controlador");
+        //Debug.Log("iscore: " + pontos.GetComponent<MusicaGerencia>().score);
+        score = (int)pontos.GetComponent<MusicaGerencia>().score;
 
         if (loja)
         {
@@ -400,6 +394,7 @@ public class Laranja : NetworkBehaviour
         else
             velocidade = 6.0f;
 
+        textcanvas();
 
         Movimentacao();
 
@@ -433,7 +428,9 @@ public class Laranja : NetworkBehaviour
             {
                 gold -= 10 * capa;
                 capa++;
+
             }
+            skillItem2.GetComponent<RawImage>().enabled = true;
         }
         if (Input.GetButtonDown("4") && loja)
         {
@@ -443,6 +440,7 @@ public class Laranja : NetworkBehaviour
                 gold -= 10 * arco;
                 arco++;
             }
+            skillItem.GetComponent<RawImage>().enabled = true;
         }
 
 
@@ -553,7 +551,7 @@ public class Laranja : NetworkBehaviour
                 gold -= 10 * liqui;
                 liqui++;
             }
-            SetCountText3();
+           
         }
         if (Input.GetButtonDown("2") && loja)
         {
@@ -564,7 +562,7 @@ public class Laranja : NetworkBehaviour
                 seme++;
                 CmdCura(2);
             }
-            SetCountText4();
+           
         }
         if (Input.GetButtonDown("3") && loja)
         {
@@ -574,7 +572,7 @@ public class Laranja : NetworkBehaviour
                 gold -= 10 * capa;
                 capa++;
             }
-            SetCountText5();
+            
         }
         if (Input.GetButtonDown("4") && loja)
         {
@@ -584,7 +582,7 @@ public class Laranja : NetworkBehaviour
                 gold -= 10 * arco;
                 arco++;
             }
-            SetCountText6();
+            
         }
 
 

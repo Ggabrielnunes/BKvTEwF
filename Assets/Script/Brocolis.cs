@@ -61,7 +61,13 @@ public class Brocolis : NetworkBehaviour {
     public Text valor2;
     public Text valor3;
     public Text valor4;
+    public Text valor8;
     public Text timerText;
+    public GameObject pontos;
+    public int score;
+    public RawImage skillItem;
+    public RawImage skillItem2;
+
 
     [SyncVar]
     public int vida;
@@ -94,7 +100,7 @@ public class Brocolis : NetworkBehaviour {
     {
         for (int i = 0; i < 10; i++)
         {
-            if(BarraHP[i].transform.localPosition.z < 50)
+            if (BarraHP[i].transform.localPosition.z < 50)
                 BarraHP[i].transform.localPosition += new Vector3(0.0f, 0.0f, 1000.0f);
         }
 
@@ -149,7 +155,7 @@ public class Brocolis : NetworkBehaviour {
         }
     }
 
-     public void CmdFerdinandez()
+    public void CmdFerdinandez()
     {
         ferdinandez = true;
     }
@@ -177,7 +183,6 @@ public class Brocolis : NetworkBehaviour {
             bullet.GetComponent<ParticleSystem>().Play();
         }
         NetworkServer.Spawn(bullet);
-        setCountText2();
     }
     public void CmdGold(int money)
     {
@@ -185,7 +190,6 @@ public class Brocolis : NetworkBehaviour {
             return;
 
         gold += money;
-        SetCountText();
     }
 
     public void CmdMenosGold(int money)
@@ -195,36 +199,36 @@ public class Brocolis : NetworkBehaviour {
         gold -= money;
     }
 
-    void SetCountText()
+    void textcanvas()
     {
         countGold.text = "Peças: " + gold.ToString();
-    }
-
-    void setCountText2()
-    {
+        
         countMunicao.text = "Municao " + municao.ToString();
-    }
-
-    void SetCountText3()
-    {
+       
         valor.text = "Peças: " + (liqui * 10).ToString();
-    }
-
-    void SetCountText4()
-    {
+       
         valor2.text = "Peças: " + (seme * 10).ToString();
-    }
-
-    void SetCountText5()
-    {
+        
         valor3.text = "Peças: " + (capa * 10).ToString();
-    }
-
-    void SetCountText6()
-    {
+       
         valor4.text = "Peças: " + (arco * 10).ToString();
-    }
 
+        if (score == 0)
+        {
+            valor8.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+            valor8.text = "Equilibrio: " + score.ToString();
+        }
+        else if (score > 0)
+        {
+            valor8.color = new Color(0.827f, 0.647f, 0.0f, 1.0f);
+            valor8.text = "Vantagem Reino: " + score.ToString();
+        }
+        else
+        {
+            valor8.color = new Color(0.898f, 0.223f, 0.137f, 1.0f);
+            valor8.text = "Vantagem Império: " + (score * -1).ToString();
+        }
+    }
     [ClientRpc]
     void RpcMorte()
     {
@@ -269,15 +273,26 @@ public class Brocolis : NetworkBehaviour {
         som = this.gameObject.GetComponent<AudioSource>();
         loja = false;
         startTime = Time.time;
+        score = 0;
+
 
         lojaItem.GetComponent<Canvas>().enabled = false;
 
+        skillItem.GetComponent<RawImage>().enabled = false;
+        skillItem2.GetComponent<RawImage>().enabled = false;
+
         countGold.text = "Gold: " + gold.ToString();
-        countMunicao.text = "Municao " + municao.ToString();
+        countMunicao.text = "Munição " + municao.ToString();
         valor.text = "Peças: " + (liqui * 10).ToString();
         valor.text = "Peças: " + (seme * 10).ToString();
         valor.text = "Peças: " + (capa * 10).ToString();
         valor.text = "Peças: " + (arco * 10).ToString();
+        if(score == 0)
+            valor8.text = "Equilibrio: " + score.ToString();
+        else if (score > 0)
+            valor8.text = "Vantagem Reino: " + score.ToString();
+        else
+            valor8.text = "Vantagem Império: " + (score * -1).ToString();
 
         CmdUIVida();
 
@@ -326,10 +341,10 @@ public class Brocolis : NetworkBehaviour {
     {
         if (!isLocalPlayer)
             return;
-        
+
         if (faleceu > 0)
         {
-            if(!ferdinandez)
+            if (!ferdinandez)
                 faleceu -= 1 * Time.deltaTime;
 
             return;
@@ -341,8 +356,11 @@ public class Brocolis : NetworkBehaviour {
             CmdUIVida();
         }
 
-
-        if(loja)
+        pontos = GameObject.FindGameObjectWithTag("Controlador");
+        //Debug.Log("iscore: " + pontos.GetComponent<MusicaGerencia>().score);
+        score = (int)pontos.GetComponent<MusicaGerencia>().score;
+        
+        if (loja)
         {
             lojaItem.GetComponent<Canvas>().enabled = true;
             // lojaItem
@@ -353,9 +371,14 @@ public class Brocolis : NetworkBehaviour {
         }
 
         float t = Time.time - startTime;
+        if (t > 900)
+            t = 900;
         string minutes = ((int)t / 60).ToString();
         string seconds = (t % 60).ToString("f0");
-        timerText.text = minutes + ":" + seconds;
+        if (t % 60 > 9)
+            timerText.text = minutes + ":" + seconds;
+        else
+            timerText.text = minutes + ":0" + seconds;
 
         ferdinandezentra = GameObject.FindGameObjectWithTag("FerdinandezFundo");
 
@@ -380,6 +403,7 @@ public class Brocolis : NetworkBehaviour {
         else
             velocidade = 6.0f;
 
+        textcanvas();
 
         Movimentacao();
         
@@ -478,7 +502,7 @@ public class Brocolis : NetworkBehaviour {
                 gold -= 10 * liqui;
                 liqui++;
             }
-            SetCountText3();
+            skillItem.GetComponent<RawImage>().enabled = true;
         }
         if (Input.GetButtonDown("2") && loja)
         {
@@ -489,7 +513,6 @@ public class Brocolis : NetworkBehaviour {
                 seme++;
                 CmdCura(2);
             }
-            SetCountText4();
         }
         if (Input.GetButtonDown("3") && loja)
         {
@@ -499,8 +522,8 @@ public class Brocolis : NetworkBehaviour {
                 CmdMenosGold(10 * capa);
                 capa++;
             }
-            SetCountText5();
-          
+            skillItem2.GetComponent<RawImage>().enabled = true;
+
         }
         if (Input.GetButtonDown("4") && loja)
         {
@@ -510,7 +533,6 @@ public class Brocolis : NetworkBehaviour {
                 gold -= 10 * arco;
                 arco++;
             }
-            SetCountText6();
         }
 
 

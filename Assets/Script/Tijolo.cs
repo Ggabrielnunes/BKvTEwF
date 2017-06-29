@@ -64,7 +64,12 @@ public class Tijolo : NetworkBehaviour
     public Text valor2;
     public Text valor3;
     public Text valor4;
+    public Text valor8;
     public Text timerText;
+    public GameObject pontos;
+    public int score;
+    public RawImage skillItem;
+    public RawImage skillItem2;
 
     [SyncVar]
     public int vida;
@@ -194,39 +199,25 @@ public class Tijolo : NetworkBehaviour
             return;
 
         gold += money;
-        SetCountText();
     }
 
-    void SetCountText()
+    void textcanvas()
     {
         countGold.text = "Peças: " + gold.ToString();
-    }
 
-    void setCountText2()
-    {
-        countMunicao.text = "Municao " + municao.ToString();
-    }
+        //countMunicao.text = "Municao " + municao.ToString();
 
-    void SetCountText3()
-    {
         valor.text = "Peças: " + (liqui * 10).ToString();
-    }
 
-    void SetCountText4()
-    {
         valor2.text = "Peças: " + (seme * 10).ToString();
-    }
 
-    void SetCountText5()
-    {
         valor3.text = "Peças: " + (capa * 10).ToString();
-    }
 
-    void SetCountText6()
-    {
         valor4.text = "Peças: " + (arco * 10).ToString();
-    }
 
+        valor8.text = score.ToString();
+        Debug.Log("aaa: " + valor8.text);
+    }
     [ClientRpc]
     void RpcMorte()
     {
@@ -268,11 +259,13 @@ public class Tijolo : NetworkBehaviour
         capa = 1;
         seme = 1;
         startTime = Time.time;
+        score = 0;
 
         som = this.gameObject.GetComponent<AudioSource>();
         loja = false;
 
-        lojaItem.GetComponent<Canvas>().enabled = false;
+        skillItem.GetComponent<RawImage>().enabled = false;
+        skillItem2.GetComponent<RawImage>().enabled = false;
 
         countGold.text = "Gold: " + gold.ToString();
         countMunicao.text = "Municao " + municao.ToString();
@@ -280,6 +273,7 @@ public class Tijolo : NetworkBehaviour
         valor.text = "Peças: " + (seme * 10).ToString();
         valor.text = "Peças: " + (capa * 10).ToString();
         valor.text = "Peças: " + (arco * 10).ToString();
+        valor8.text = score.ToString();
 
         for (int i = 0; i < vida; i++)
         {
@@ -348,6 +342,11 @@ public class Tijolo : NetworkBehaviour
             CmdUIVida();
         }
 
+
+        pontos = GameObject.FindGameObjectWithTag("Controlador");
+        //Debug.Log("iscore: " + pontos.GetComponent<MusicaGerencia>().score);
+        score = (int)pontos.GetComponent<MusicaGerencia>().score;
+
         if (loja)
         {
             lojaItem.GetComponent<Canvas>().enabled = true;
@@ -386,6 +385,7 @@ public class Tijolo : NetworkBehaviour
         else
             velocidade = 6.0f;
 
+        textcanvas();
 
         Movimentacao();
 
@@ -411,6 +411,7 @@ public class Tijolo : NetworkBehaviour
                 seme++;
                 CmdCura(2);
             }
+            skillItem.GetComponent<RawImage>().enabled = true;
         }
         if (Input.GetButtonDown("3") && loja)
         {
@@ -429,6 +430,7 @@ public class Tijolo : NetworkBehaviour
                 gold -= 10 * arco;
                 arco++;
             }
+            skillItem2.GetComponent<RawImage>().enabled = true;
         }
 
 

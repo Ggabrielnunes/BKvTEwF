@@ -67,7 +67,12 @@ public class Banana : NetworkBehaviour
     public Text valor2;
     public Text valor3;
     public Text valor4;
+    public Text valor8;
     public Text timerText;
+    public GameObject pontos;
+    public int score;
+    public RawImage skillItem;
+    public RawImage skillItem2;
 
     [SyncVar]
     public int vida;
@@ -192,37 +197,23 @@ public class Banana : NetworkBehaviour
         gold -= money;
     }
 
-    void SetCountText()
+    void textcanvas()
     {
         countGold.text = "Peças: " + gold.ToString();
-    }
 
-    void setCountText2()
-    {
         countMunicao.text = "Municao " + municao.ToString();
-    }
 
-    void SetCountText3()
-    {
         valor.text = "Peças: " + (liqui * 10).ToString();
-    }
 
-    void SetCountText4()
-    {
         valor2.text = "Peças: " + (seme * 10).ToString();
-    }
 
-    void SetCountText5()
-    {
         valor3.text = "Peças: " + (capa * 10).ToString();
-    }
 
-    void SetCountText6()
-    {
         valor4.text = "Peças: " + (arco * 10).ToString();
+
+        valor8.text = score.ToString();
+        Debug.Log("aaa: " + valor8.text);
     }
-
-
     [ClientRpc]
     void RpcMorte()
     {
@@ -268,7 +259,13 @@ public class Banana : NetworkBehaviour
         loja = false;
 
 
+        score = 0;
+
+
         lojaItem.GetComponent<Canvas>().enabled = false;
+
+        skillItem.GetComponent<RawImage>().enabled = false;
+        skillItem2.GetComponent<RawImage>().enabled = false;
 
         countGold.text = "Gold: " + gold.ToString();
         countMunicao.text = "Municao " + municao.ToString();
@@ -276,6 +273,7 @@ public class Banana : NetworkBehaviour
         valor.text = "Peças: " + (seme * 10).ToString();
         valor.text = "Peças: " + (capa * 10).ToString();
         valor.text = "Peças: " + (arco * 10).ToString();
+        valor8.text = score.ToString();
 
 
         for (int i = 0; i < vida; i++)
@@ -343,6 +341,9 @@ public class Banana : NetworkBehaviour
             CmdUIVida();
         }
 
+        pontos = GameObject.FindGameObjectWithTag("Controlador");
+        //Debug.Log("iscore: " + pontos.GetComponent<MusicaGerencia>().score);
+        score = (int)pontos.GetComponent<MusicaGerencia>().score;
 
         if (loja)
         {
@@ -385,6 +386,7 @@ public class Banana : NetworkBehaviour
         else
             velocidade = 6.0f;
 
+        textcanvas();
 
         Movimentacao();
 
@@ -400,6 +402,7 @@ public class Banana : NetworkBehaviour
                 gold -= 10 * liqui;
                 liqui++;
             }
+            skillItem2.GetComponent<RawImage>().enabled = true;
         }
         if (Input.GetButtonDown("2") && loja)
         {
@@ -410,6 +413,7 @@ public class Banana : NetworkBehaviour
                 seme++;
                 CmdCura(2);
             }
+            skillItem.GetComponent<RawImage>().enabled = true;
         }
         if (Input.GetButtonDown("3") && loja)
         {
